@@ -1,0 +1,107 @@
+.recette {
+
+  @keyframes enter {
+    0% {
+      opacity: 0;
+      transform: translateY(15px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  opacity: 0;
+  animation: enter forwards .3s ease-out;
+
+  border-radius: 20px;
+  background-color: white;
+  padding: 8px;
+  margin-bottom: 15px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  /**
+        Justify-content permet d'aligner selon l'axe 'principal', celui que tu as dit en paramétrant flex-direction
+        align-items permet d'aligner selon l'axe 'oposé', vertical si tu as dit horizontal avec flex-direction, ou vice-versa 
+    **/
+
+  .titrerecette {
+    font-size: 22px;
+    margin-bottom: 5px;
+  }
+
+  .infos {
+    display: flex;
+    flex-direction: column;
+    font-family: light;
+    width: 40%;
+    img {
+      min-width: 20px;
+      max-width: 20px;
+    }
+    div {
+      align-items: center;
+      display: flex;
+    }
+    span:not(.titrerecette) {
+      color: #676767;
+      left: 5%;
+      bottom: 5%;
+      font-size: 10px;
+      /*line-height: 0.01cm;*/
+    }
+    .personnes {
+      display: flex;
+      flex-direction: row;
+      margin-top: 4px;
+      margin-bottom: 4px;
+    }
+    .heure {
+      display: flex;
+      flex-direction: row;
+      div, span {
+        display: block;
+      }
+      div {
+        width: 100%;
+      }
+    }
+    span {
+      width: 100%;
+    }
+  }
+
+  .img_recette {
+    width: 50%;
+    overflow: hidden;
+    height: fit-content;
+    img {
+      border-radius: 20px;
+      width: 100%;
+      height: auto;
+    }
+  }
+
+  &.el2 {
+    flex-direction: row-reverse;
+    .infos {
+      margin-left: 10px;
+      img {
+        margin-right: 10px;
+      }
+      div span, .heure div {
+        order: 1;
+      }
+    }
+  }
+  &.el1 {
+    text-align: right;
+    .infos {
+      margin-right: 10px;
+      img {
+        margin-left: 10px;
+      }
+    }
+  }
+}

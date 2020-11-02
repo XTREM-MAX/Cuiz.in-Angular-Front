@@ -1,3 +1,4 @@
+import { Recipe } from './../../models/recipes/Recipe';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,7 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RecipesComponent implements OnInit {
 
-  constructor() { }
+  recipes: Recipe[] = [
+    new Recipe("Lasagne", "https://imgcdn.circulaire-en-ligne.ca/wp-content/uploads/lasagnes-a-la-bolognaise-facile.jpg", 25, 2, "15/11/2009", "14:03"),
+    new Recipe("Tartiflette", "https://imgcdn.circulaire-en-ligne.ca/wp-content/uploads/lasagnes-a-la-bolognaise-facile.jpg", 1, 4, "14/05/2018", "21:35"),
+    new Recipe("Truie", "https://imgcdn.circulaire-en-ligne.ca/wp-content/uploads/lasagnes-a-la-bolognaise-facile.jpg", 55, 1, "21/08/2020", "05:12")
+  ];
+  constructor() {}
 
   ngOnInit() {
   }

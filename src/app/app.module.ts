@@ -1,3 +1,4 @@
+import { RecipeComponent } from './views/recipes/recipe/recipe.component';
 import { HomeComponent } from './views/Home/Home.component';
 import { BottomBarButtonComponent } from './components/bottombar/BottomBarButton/BottomBarButton.component';
 import { RecipesComponent } from './views/recipes/recipes.component';
@@ -14,7 +15,8 @@ import { BottombarComponent } from './components/bottombar/bottombar.component';
     BottombarComponent,
     BottomBarButtonComponent,
     RecipesComponent,
-    HomeComponent
+    RecipeComponent,
+    HomeComponent,
   ],
   imports: [
     BrowserModule,

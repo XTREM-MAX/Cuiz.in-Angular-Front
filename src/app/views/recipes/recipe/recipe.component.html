@@ -1,0 +1,28 @@
+<div class="recette el{{ (index % 2) + 1 }}" style="animation-delay: {{ index * 100 }}ms">
+  <!-- C'est une ligne -->
+  <div class="infos">
+    <!-- C'est une colonne -->
+    <span class="titrerecette">{{ recipe.name }}</span>
+    <div class="temps">
+      <span>{{ recipe.time }} minute{{ recipe.time > 1 ? "s" : ""}}</span>
+      <img src="../../../assets/icons/clock.svg">
+    </div>
+    <div class="personnes">
+      <span>{{ recipe.users }} personne{{ recipe.users > 1 ? "s" : ""}}</span>
+      <img src="../../../assets/icons/account.svg">
+    </div>
+    <div class="heure">
+      <div>
+        <span>{{ recipe.dateLiked }}</span>
+        <span>{{ recipe.hourLiked }}</span>
+      </div>
+      <img src="../../../assets/icons/heart.svg">
+    </div>
+  </div>
+  <div class="img_recette">
+    <img src="{{ recipe.imageUrl }}">
+  </div>
+
+
+
+</div>

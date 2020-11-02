@@ -1,3 +1,9 @@
-<p>
-  recipes works!
-</p>
+<div class="view">
+  <div class="grandtitre">
+    <span class="titre">Recettes</span>
+    <img srcset="../../../assets/icons/search.svg">
+  </div>
+
+  <app-recipe *ngFor="let recipe of recipes" [recipe]="recipe" [index]="recipes.indexOf(recipe)"></app-recipe>
+
+</div>
