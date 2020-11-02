@@ -1,4 +1,4 @@
-<div class="recette el{{ (index % 2) + 1 }}" style="animation-delay: {{ index * 100 }}ms">
+<div class="recette el{{ (index % 2) + 1 }}" [style]="{ 'animation-delay': (index * 70) + 'ms' }">
   <!-- C'est une ligne -->
   <div class="infos">
     <!-- C'est une colonne -->
@@ -22,7 +22,4 @@
   <div class="img_recette">
     <img src="{{ recipe.imageUrl }}">
   </div>
-
-
-
 </div>
