@@ -10,14 +10,12 @@ import { Component, OnInit } from '@angular/core';
 export class BottombarComponent implements OnInit {
 
   buttons: { [key: number]: BottomBarButton } = {
-    0/* BottomBarView.HOME */:       new BottomBarButton("Découverte", "heart"),
+    0/* BottomBarView.HOME */:       new BottomBarButton("Découverte", "heart", true),//Par défaut, la page Home est focus.
     1/* BottomBarView.RECIPES */:    new BottomBarButton("Recettes", "recipe"),
     2/* BottomBarView.MY_ACCOUNT */: new BottomBarButton("Mon Compte", "account")
   };
 
-  constructor() {
-    this.buttons[BottomBarView.HOME].focused = true;//Par défaut, la page Home est focus.
-  }
+  constructor() {}
 
   ngOnInit() {}
 
