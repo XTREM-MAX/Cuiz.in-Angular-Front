@@ -7,15 +7,15 @@ div {
         margin-top: 5px;
         font-size: 14px;
     }
-    .focus {
+    & img:nth-child(2) {
         display: none;
     }
     &.selected {
         color: #CD7575;
-        img:not(.focus) {
+        & img:nth-child(1) {
             display: none;
         }
-        .focus {
+        & img:nth-child(2) {
             display: inline;
         }
     }

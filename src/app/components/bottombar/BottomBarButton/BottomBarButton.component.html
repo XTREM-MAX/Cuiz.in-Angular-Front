@@ -1,5 +1,5 @@
-<div class="discover selected">
-  <img src="../../../assets/icons/{{ button.icon }}.svg" alt="Discover" [class.focus]="!button.focused">
-  <img src="../../../assets/icons/{{ button.icon }}-red.svg" alt="Discover" [class.focus]="button.focused">
+<div [class.selected]="button.focused">
+  <img src="../../../assets/icons/{{ button.icon }}.svg" alt="{{ button.name }}">
+  <img src="../../../assets/icons/{{ button.icon }}-red.svg" alt="{{ button.name }}">
   <span>{{ button.name }}</span>
 </div>
