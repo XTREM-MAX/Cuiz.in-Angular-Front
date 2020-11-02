@@ -1,3 +1,4 @@
+import { HomeComponent } from './views/Home/Home.component';
 import { BottomBarButtonComponent } from './components/bottombar/BottomBarButton/BottomBarButton.component';
 import { RecipesComponent } from './views/recipes/recipes.component';
 import { BrowserModule } from '@angular/platform-browser';
@@ -12,7 +13,8 @@ import { BottombarComponent } from './components/bottombar/bottombar.component';
     AppComponent,
     BottombarComponent,
     BottomBarButtonComponent,
-    RecipesComponent
+    RecipesComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,

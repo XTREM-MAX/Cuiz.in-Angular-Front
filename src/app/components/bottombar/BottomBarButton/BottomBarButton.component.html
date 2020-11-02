@@ -1,4 +1,4 @@
-<div [class.selected]="button.focused">
+<div [class.selected]="button.focused" (click)="onClick()">
   <img src="../../../assets/icons/{{ button.icon }}.svg" alt="{{ button.name }}">
   <img src="../../../assets/icons/{{ button.icon }}-red.svg" alt="{{ button.name }}">
   <span>{{ button.name }}</span>
