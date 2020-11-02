@@ -4,6 +4,6 @@
     <img srcset="../../../assets/icons/search.svg">
   </div>
 
-  <app-recipe *ngFor="let recipe of recipes" [recipe]="recipe" [index]="recipes.indexOf(recipe)"></app-recipe>
+  <app-recipe *ngFor="let recipe of recipes" [recipe]="recipe" [index]="recipes.indexOf(recipe)" [delayAnimation]="!initialized"></app-recipe>
 
 </div>
