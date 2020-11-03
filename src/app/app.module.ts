@@ -1,3 +1,6 @@
+import { LoginActivate } from './router/conditions/LoginActivate';
+import { NotLoggedActivate } from './router/conditions/NotLoggedActivate';
+import { LoginComponent } from './views/login/login.component';
 import { RecipeComponent } from './views/recipes/recipe/recipe.component';
 import { HomeComponent } from './views/Home/Home.component';
 import { BottomBarButtonComponent } from './components/bottombar/BottomBarButton/BottomBarButton.component';
@@ -17,12 +20,16 @@ import { BottombarComponent } from './components/bottombar/bottombar.component';
     RecipesComponent,
     RecipeComponent,
     HomeComponent,
+    LoginComponent,
+  ],
+  providers: [
+    LoginActivate,
+    NotLoggedActivate,
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
   ],
-  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,4 +1,4 @@
 <div>
   <router-outlet></router-outlet>
-  <app-bottombar></app-bottombar>
+  <app-bottombar *ngIf="router.url !== '/login'"></app-bottombar>
 </div>
