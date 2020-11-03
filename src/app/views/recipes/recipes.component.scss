@@ -1,16 +1,3 @@
-@font-face {
-  font-family: "montserrat";
-  src: url(../../../assets/fonts/Montserrat-Bold.ttf);
-}
-@font-face {
-  font-family: "regular";
-  src: url(../../../assets/fonts/Montserrat-Regular.ttf);
-}
-@font-face {
-  font-family: "light";
-  src: url(../../../assets/fonts/Montserrat-Light.otf);
-}
-
 /**
 Principe d'imbrication en blocks, on peut mettre un selecteur avec des {} à l'intérieur d'un element. Grace à ca on sélectionne l'élement
 enfant :
