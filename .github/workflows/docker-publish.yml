@@ -61,6 +61,6 @@ jobs:
     runs-on: ubuntu-18.04
     steps:
       - name: Deploy docker container webhook
-        uses: joelwale/webhook-action@master
+        uses: joelwmale/webhook-action@master
         env:
           WEBHOOK_URL: ${{ secrets.DEPLOY_WEBHOOK_URL }}
