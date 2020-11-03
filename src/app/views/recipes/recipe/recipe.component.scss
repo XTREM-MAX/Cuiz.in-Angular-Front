@@ -28,8 +28,8 @@
     **/
 
   .titrerecette {
-    font-size: 22px;
-    margin-bottom: 5px;
+    font-size: 5.6vw;
+    margin-bottom: 1.3vw;
   }
 
   .infos {
@@ -38,8 +38,8 @@
     font-family: light;
     width: 40%;
     img {
-      min-width: 20px;
-      max-width: 20px;
+      min-width: 5.1vw;
+      max-width: 5.1vw;
     }
     div {
       align-items: center;
@@ -49,14 +49,13 @@
       color: #676767;
       left: 5%;
       bottom: 5%;
-      font-size: 10px;
+      font-size: 2.6vw;
       /*line-height: 0.01cm;*/
     }
     .personnes {
       display: flex;
       flex-direction: row;
-      margin-top: 4px;
-      margin-bottom: 4px;
+      margin: 1vw 0;
     }
     .heure {
       display: flex;
