@@ -6,8 +6,8 @@
   "display": "standalone",
   "scope": "./",
   "start_url": "./",
-  "maxWidth":600,
-  "width":600,
+  "maxWidth":500,
+  "width":500,
   "icons": [
     {
       "src": "assets/icons/icon-72x72.png",

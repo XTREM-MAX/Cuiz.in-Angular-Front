@@ -1,0 +1,17 @@
+.globalView {
+    background-color: #e2f3f5;
+    height: 100vh;
+    width: 100vw;
+}
+
+@media(min-width: 500px) {
+    .globalView {
+        width: 500px;
+        height: 90vh;
+        top: 5vh;
+        position: fixed;
+        left: calc(50vw - 250px);
+        border-radius: 30px;
+        overflow: hidden;
+    }
+}

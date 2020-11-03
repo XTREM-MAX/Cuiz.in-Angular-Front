@@ -1,3 +1,5 @@
+@import "../../../../styles.scss";
+
 .recette {
 
   @keyframes enter {
@@ -15,10 +17,10 @@
   animation: enter forwards .3s ease-out;
 
   box-shadow: 0 0 5px rgba(0, 0, 0, .03);
-  border-radius: 5.2vw;
+  border-radius: get-vws(5.2);
   background-color: white;
-  padding: 2vw;
-  margin-bottom: 3.9vw;
+  padding: get-vws(2);
+  margin-bottom: get-vws(3.9);
   display: flex;
   flex-direction: row;
   justify-content: flex-end;
@@ -28,8 +30,8 @@
     **/
 
   .titrerecette {
-    font-size: 5.6vw;
-    margin-bottom: 1.3vw;
+    font-size: get-vws(5.6);
+    margin-bottom: get-vws(1.3);
   }
 
   .infos {
@@ -38,8 +40,8 @@
     font-family: light;
     width: 40%;
     img {
-      min-width: 5.1vw;
-      max-width: 5.1vw;
+      min-width: get-vws(5.1);
+      max-width: get-vws(5.1);
     }
     div {
       align-items: center;
@@ -49,13 +51,13 @@
       color: #676767;
       left: 5%;
       bottom: 5%;
-      font-size: 2.6vw;
+      font-size: get-vws(2.6);
       /*line-height: 0.01cm;*/
     }
     .personnes {
       display: flex;
       flex-direction: row;
-      margin: 1vw 0;
+      margin: get-vws(1) 0;
     }
     .heure {
       display: flex;
@@ -77,7 +79,7 @@
     overflow: hidden;
     height: fit-content;
     img {
-      border-radius: 4.5vw;
+      border-radius: get-vws(4.5);
       width: 100%;
       height: auto;
     }

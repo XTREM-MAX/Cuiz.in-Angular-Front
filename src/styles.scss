@@ -13,17 +13,30 @@
 }
 
 body {
-  background-color: #e2f3f5;
   color: #676767;
+  background: #3e3636;
   margin: 0;
 }
 .view {
-  display: block;
-  padding: 0 18px;
+    display: block;
+    padding: 0 18px;
 }
 .withbottombar {
-	.view {
-		height: calc(100vh - 56px);
-		overflow: auto;
-	}
+  .view {
+    height: calc(100vh - 56px);
+    overflow: auto;
+  }
+}
+
+@media(min-width: 500px) {
+  .withbottombar {
+    .view {
+      height: calc(90vh - 56px);
+      overflow: auto;
+    }
+  }
+}
+
+@function get-vws($howmany) {
+  @return calc(#{$howmany} * min(1vw, 5px));
 }
