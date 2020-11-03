@@ -21,3 +21,9 @@ body {
   display: block;
   padding: 0 18px;
 }
+.withbottombar {
+	.view {
+		height: calc(100vh - 56px);
+		overflow: auto;
+	}
+}

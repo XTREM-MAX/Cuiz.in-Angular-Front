@@ -1,4 +1,4 @@
-<div>
+<div [ngClass]="{ 'withbottombar': router.url !== '/login' }">
   <router-outlet></router-outlet>
   <app-bottombar *ngIf="router.url !== '/login'"></app-bottombar>
 </div>
