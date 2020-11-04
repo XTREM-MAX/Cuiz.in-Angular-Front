@@ -13,6 +13,7 @@
 }
 
 body {
+  overflow-behavior: contain;
   color: #676767;
   background: #3e3636;
   margin: 0;
