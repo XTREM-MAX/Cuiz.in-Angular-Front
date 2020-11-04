@@ -5,6 +5,7 @@ div {
     cursor: pointer;
     border-radius: 15px;;
     outline: none;
+    -webkit-tap-highlight-color: transparent;
     span {
         text-align: center;
         margin-top: 5px;
