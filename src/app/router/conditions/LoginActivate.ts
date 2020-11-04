@@ -7,7 +7,7 @@ export class LoginActivate implements CanActivate {
   constructor(private router: Router) {}
 
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<boolean>|Promise<boolean>|boolean {
-    let logged = true;
+    let logged = false;
     if (!logged)
       this.router.navigateByUrl('/login');
     return logged;//TODO login

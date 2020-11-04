@@ -1,0 +1,135 @@
+.view {
+  font-family: "montserrat";
+  padding: 0;
+}
+
+.rectangle1 {
+  padding: 20px;
+  margin-bottom: 30px;
+  background-image: url(../../../assets/icons/vague.svg);
+  position: relative;
+  height: 305px;
+}
+
+.titre {
+  font-size: 48px;
+  font-weight: bold;
+  color: #ffffff;
+}
+
+.slogan {
+  font-size: 33px;
+  margin-top: 35px;
+  color: #ffffff;
+  font-family: regular;
+}
+.join_us {
+  margin-top: 30px;
+}
+
+.rectangle2 {
+  height: 371px;
+}
+
+.third-parties {
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+  height: 60px;
+  width: 160px;
+}
+
+.third-parties a {
+  width: fit-content;
+  display: contents;
+}
+
+img {
+  transition: transform 0.2s;
+  height: 100%;
+  width: auto;
+}
+img:hover {
+  transform: scale(0.95);
+}
+
+.ou {
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 22px;
+  text-align: center;
+  color: #aeaeae;
+  margin-bottom: 0;
+  padding: 12px;
+}
+
+.form div {
+  width: fit-content;
+  margin: auto;
+}
+
+.mail {
+  font-size: 18px;
+  color: #898989;
+}
+input {
+  margin-top: 3px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0); /** Pour la transition (et que ça ne lag pas trop sur tel) **/
+  transition: box-shadow 0.2s;
+}
+input:focus {
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.barre_mail {
+  background: #ffffff;
+  border-radius: 17px;
+  width: 247px;
+  height: 42px;
+  outline: none;
+  border: none;
+  box-shadow: none;
+  padding-left: 13px;
+}
+
+.mdp {
+  font-size: 18px;
+  margin-top: 15px;
+  display: block;
+  line-height: 22px;
+  color: #898989;
+}
+
+.barre_mdp {
+  background: #ffffff;
+  border-radius: 15px;
+  width: 247px;
+  height: 42px;
+  outline: none;
+  border: none;
+  box-shadow: none;
+  padding-left: 13px;
+}
+
+.bouton {
+  transition: transform 0.2s;
+  cursor: pointer;
+  background: #cd7575;
+  border-radius: 20px;
+  line-height: 42px;
+  width: 178px;
+  color: #ffffff;
+  font-size: 20px;
+  font-weight: bold;
+  outline: none;
+  border: none;
+  box-shadow: none;
+  border-color: #cd7575;
+  margin-top: 17px;
+}
+
+.bouton:hover {
+  transform: scale(0.97);
+}
+
+/*# sourceMappingURL=style.css.map */
