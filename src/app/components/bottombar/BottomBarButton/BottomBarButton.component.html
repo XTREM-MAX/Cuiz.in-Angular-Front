@@ -1,5 +1,5 @@
-<div [class.selected]="button.focused" [routerLink]="button.route">
-  <img src="../../../assets/icons/{{ button.icon }}.svg" alt="{{ button.name }}">
-  <img src="../../../assets/icons/{{ button.icon }}-red.svg" alt="{{ button.name }}">
-  <span>{{ button.name }}</span>
-</div>
+  <div matRipple [matRippleColor]="$any('rgba(205, 117, 117, 0.308)')" [class.selected]="button.focused" [routerLink]="button.route">
+    <img src="../../../assets/icons/{{ button.icon }}.svg" alt="{{ button.name }}">
+    <img src="../../../assets/icons/{{ button.icon }}-red.svg" alt="{{ button.name }}">
+    <span>{{ button.name }}</span>
+  </div>

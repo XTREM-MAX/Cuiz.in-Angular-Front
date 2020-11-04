@@ -12,10 +12,15 @@
   justify-content: space-around;
   align-items: center;
   display: flex;
+  overflow: hidden;
 }
 
 @media (min-width: 500px) {
   .bottombar {
     border-radius: 0;
   }
+}
+app-bottombarbutton {
+  width: 100%;
+  margin: 0 5px;
 }

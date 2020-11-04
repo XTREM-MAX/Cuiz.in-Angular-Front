@@ -12,8 +12,10 @@
   src: url(assets/fonts/Montserrat-Light.otf);
 }
 
-body {
+html {
   overflow-behavior: contain;
+}
+body {
   color: #676767;
   background: #3e3636;
   margin: 0;
@@ -41,3 +43,5 @@ body {
 @function get-vws($howmany) {
   @return calc(#{$howmany} * min(1vw, 5px));
 }
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

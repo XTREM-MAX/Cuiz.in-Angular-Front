@@ -13,6 +13,8 @@ import { AppComponent } from './app.component';
 import { BottombarComponent } from './components/bottombar/bottombar.component';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatRippleModule} from '@angular/material/core';
 
 @NgModule({
   declarations: [
@@ -32,6 +34,8 @@ import { environment } from '../environments/environment';
     BrowserModule,
     AppRoutingModule,
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
+    BrowserAnimationsModule,
+    MatRippleModule
   ],
   bootstrap: [AppComponent]
 })
