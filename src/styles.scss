@@ -19,6 +19,8 @@ body {
   color: #676767;
   background: #3e3636;
   margin: 0;
+  user-select: none;
+  user-drag: none;
 }
 .view {
     display: block;

@@ -1,9 +1,10 @@
 div {
+    padding-top: 3px;
     height: fit-content;
     display: flex;
     flex-direction: column;
     cursor: pointer;
-    border-radius: 15px;;
+    border-radius: 15px;
     outline: none;
     -webkit-tap-highlight-color: transparent;
     span {
