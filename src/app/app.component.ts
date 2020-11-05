@@ -8,5 +8,7 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'Cuiz.in';
-  constructor(public router: Router) { }
+  constructor(public router: Router) {
+    document.addEventListener('contextmenu',  e => e.preventDefault()); //Avoid right clicking & long press
+  }
 }
