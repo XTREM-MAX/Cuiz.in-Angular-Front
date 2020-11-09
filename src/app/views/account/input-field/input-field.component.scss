@@ -1,0 +1,12 @@
+.field {
+  width: 90%;
+	margin: auto;
+
+  mat-label {
+    color: #A0A0A0;
+  }
+}
+
+::ng-deep.mat-form-field.mat-focused .mat-form-field-ripple{
+	background-color: #CD7575;
+}

@@ -14,29 +14,39 @@ import { BottombarComponent } from './components/bottombar/bottombar.component';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import {MatRippleModule} from '@angular/material/core';
+import { MatRippleModule } from '@angular/material/core';
+import { MatInputModule } from '@angular/material/input';
+import { InputFieldComponent } from './views/account/input-field/input-field.component';
+import { MatIconModule } from "@angular/material/icon";
+import { AccountComponent } from './views/account/account.component';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    BottombarComponent,
-    BottomBarButtonComponent,
-    RecipesComponent,
-    RecipeComponent,
-    HomeComponent,
-    LoginComponent,
-  ],
-  providers: [
-    LoginActivate,
-    NotLoggedActivate,
-  ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
-    BrowserAnimationsModule,
-    MatRippleModule
-  ],
-  bootstrap: [AppComponent]
+	declarations: [
+		AppComponent,
+		BottombarComponent,
+		BottomBarButtonComponent,
+		RecipesComponent,
+		RecipeComponent,
+		HomeComponent,
+		LoginComponent,
+		InputFieldComponent,
+		AccountComponent,
+	],
+	providers: [
+		LoginActivate,
+		NotLoggedActivate,
+	],
+	imports: [
+		BrowserModule,
+		AppRoutingModule,
+		ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
+		BrowserAnimationsModule,
+		MatRippleModule,
+		MatInputModule,
+		MatIconModule,
+		MatSnackBarModule
+	],
+	bootstrap: [AppComponent]
 })
 export class AppModule { }

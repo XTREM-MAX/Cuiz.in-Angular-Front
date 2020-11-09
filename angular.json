@@ -131,5 +131,8 @@
       }
     }
   },
-  "defaultProject": "Cuiz.in-Angular-Front"
+  "defaultProject": "Cuiz.in-Angular-Front",
+  "cli": {
+    "analytics": "6c9401a1-3b22-4515-b1f7-0ac32ecf0630"
+  }
 }
