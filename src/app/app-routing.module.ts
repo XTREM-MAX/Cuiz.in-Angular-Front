@@ -15,7 +15,7 @@ import { AccountComponent } from './views/account/account.component';
       { path: '', pathMatch: 'full', redirectTo: '/home', canActivate: [LoginActivate] },
       { path: 'home', component: HomeComponent, canActivate: [LoginActivate] },
       { path: 'recipes', component: RecipesComponent, canActivate: [LoginActivate]  },
-			{ path: 'login', component: LoginComponent, canActivate: [LoginActivate] },
+			{ path: 'login', component: LoginComponent, canActivate: [NotLoggedActivate] },
 			{ path: 'account', component: AccountComponent, canActivate: [LoginActivate] }
     ])
   ],

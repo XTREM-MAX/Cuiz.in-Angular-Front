@@ -21,7 +21,7 @@ export class ClientService {
     window.localStorage.token = token;
   }
 
-  get connected(): boolean {
+  get logged(): boolean {
     return !!this.token?.length;
   }
 
@@ -53,15 +53,25 @@ export class ClientService {
     return (await this.get(`recipe/${recipe_id}/details`));
   }
 
-  async login(email: string, password: string) {
-    let { token, mail, name } = await this.post("user/connexion", {
+  async login(email: string, password: string): Promise<"logged" | "bad_password" | "unknown_email"> {
+    let response = await this.post("user/connexion", {
       email,
       password,
     }, true);
-    this.token = token;
-    this.user = {
-      email: mail,
-      name
+
+    switch (response.code) {
+      case 200:
+        this.token = response.token;
+        this.user = {
+          email: response.email,
+          name: response.name
+        }
+        return "logged";
+      case 452:
+        return "unknown_email";
+      case 451:
+      default:
+        return "bad_password";
     }
   }
 
@@ -74,7 +84,7 @@ export class ClientService {
 	}
 	
   public async get(url: string, notLogged?: boolean): Promise<any> {
-    if (!this.token)
+    if (!this.token && !notLogged)
       throw new Error("Not connected");
     
     let response: any = await this.http.get(this.base + url, {
@@ -85,15 +95,18 @@ export class ClientService {
     return response;
   }
   public async post(url: string, body: { [key: string]: string }, notLogged?: boolean): Promise<any> {
-    if (!this.token)
+    if (!this.token && !notLogged)
       throw new Error("Not connected");
     
-    let response: any = await this.http.post(this.base+url, body, {
-      headers: notLogged ? { } : {
+    let response = this.http.post(this.base + url, body, {
+      headers: notLogged ? {} : {
         "Authorization": this.token
       }
-    }).toPromise();
-    return response;
+    });
+
+    return new Promise(executor => {
+      response.toPromise().then(executor).catch((error) => executor(error.error));
+    });
   }
 
 }
