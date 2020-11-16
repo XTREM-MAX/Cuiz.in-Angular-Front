@@ -1,0 +1,7 @@
+<mat-form-field appearance="outline" class="input">
+  <mat-label>Votre nom et prénom</mat-label>
+  <input matInput placeholder="Julien DELOISON" [(ngModel)]="text" />
+</mat-form-field>
+<div class="add">
+  <button class="button" mat-stroked-button (click)="add()" [disabled]="!text || !text.length">Créer mon compte</button>
+</div>

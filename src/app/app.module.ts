@@ -22,6 +22,9 @@ import { AccountComponent } from './views/account/account.component';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { LoginAskNameComponent } from './views/login/login-ask-name/login-ask-name.component';
+import { MatButtonModule } from '@angular/material/button';
+import { MatDialogModule } from '@angular/material/dialog';
 
 @NgModule({
 	declarations: [
@@ -34,6 +37,7 @@ import { HttpClientModule } from '@angular/common/http';
 		LoginComponent,
 		InputFieldComponent,
 		AccountComponent,
+		LoginAskNameComponent,
 	],
 	providers: [
 		LoginActivate,
@@ -50,6 +54,8 @@ import { HttpClientModule } from '@angular/common/http';
 		MatSnackBarModule,
 		FormsModule,
 		HttpClientModule,
+		MatButtonModule,
+		MatDialogModule,
 	],
 	bootstrap: [AppComponent]
 })

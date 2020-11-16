@@ -29,28 +29,28 @@ export class ClientService {
 
   async init() {
     if (this.token) {
-      this.recipes = await this.get("recipe/all");
-      this.user = await this.get("user/get");
+      this.recipes = (await this.get("recipe/all")).payload;
+      this.user = (await this.get("user/get")).payload;
     }
   }
 
   async likeRecipe(recipe_id: string) {
-    let added: Recipe = await this.post("recipe/add", {
+    let added: Recipe = (await this.post("recipe/add", {
       recipe_id
-    });
+    })).payload;
     this.recipes.push(added);
   }
   async dislikeRecipe(recipe_id: string) {
-    let added: Recipe = await this.get(`/recipe/${recipe_id}/remove`);
+    let added: Recipe = (await this.get(`/recipe/${recipe_id}/remove`)).payload;
     this.recipes.push(added);
   }
 
   async random(): Promise<RecipeResponse> {
-    return (await this.get("recipe/random")).recipe;
+    return (await this.get("recipe/random")).payload.recipe;
   }
 
   async getRecipe(recipe_id: string): Promise<RecipeResponse> {
-    return (await this.get(`recipe/${recipe_id}/details`));
+    return (await this.get(`recipe/${recipe_id}/details`)).payload;
   }
 
   async login(email: string, password: string): Promise<"logged" | "bad_password" | "unknown_email"> {
@@ -61,10 +61,10 @@ export class ClientService {
 
     switch (response.code) {
       case 200:
-        this.token = response.token;
+        this.token = response.payload.token;
         this.user = {
-          email: response.email,
-          name: response.name
+          email: response.payload.email,
+          name: response.payload.name
         }
         return "logged";
       case 452:
@@ -76,22 +76,17 @@ export class ClientService {
   }
 
   async register(email: string, password: string, name: string) {
-    await this.post("user/register", {
+    let response = await this.post("user/register", {
       email,
       password,
       name,
     }, true);
-	}
-	
-  public async get(url: string, notLogged?: boolean): Promise<any> {
-    if (!this.token && !notLogged)
-      throw new Error("Not connected");
-    
-    let response: any = await this.http.get(this.base + url, {
-      headers: notLogged ? { } : {
-        "Authorization": this.token
-      }
-    }).toPromise();
+    console.log(response)
+    this.token = response.payload.token;
+    this.user = {
+      email: response.payload.email,
+      name: response.payload.name
+    }
     return response;
   }
   public async post(url: string, body: { [key: string]: string }, notLogged?: boolean): Promise<any> {
@@ -99,6 +94,20 @@ export class ClientService {
       throw new Error("Not connected");
     
     let response = this.http.post(this.base + url, body, {
+      headers: notLogged ? {} : {
+        "Authorization": this.token
+      }
+    });
+
+    return new Promise(executor => {
+      response.toPromise().then(executor).catch((error) => executor(error.error));
+    });
+  }
+  public async get(url: string, notLogged?: boolean): Promise<any> {
+    if (!this.token && !notLogged)
+      throw new Error("Not connected");
+    
+    let response = this.http.get(this.base + url, {
       headers: notLogged ? {} : {
         "Authorization": this.token
       }

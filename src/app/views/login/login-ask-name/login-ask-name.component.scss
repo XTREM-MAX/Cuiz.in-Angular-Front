@@ -1,0 +1,13 @@
+button {
+  display: block;
+  margin: 0 10px;
+}
+.input {
+  width: 100%;
+}
+.add {
+  display: flex;
+  .button {
+    margin: auto;
+  }
+}
