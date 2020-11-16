@@ -11,17 +11,16 @@ export class InputFieldComponent implements OnInit {
 
 	@Input() inputType: string;
 	@Input() label: string;
+	@Input() value: string;
 
 	private readonly _updateTime: number = 1000;
 	private _timeoutId: number;
-	private _value: string;
 
   constructor(
 		private _snackbar: MatSnackBar
 	) { }
 
-	public onChange(event) {
-		this._value = event.target.value;
+	public onChange() {
 
 		if (this._timeoutId)
 			window.clearTimeout(this._timeoutId)
@@ -29,7 +28,7 @@ export class InputFieldComponent implements OnInit {
 	}
 
 	private _sendChanges() {
-		this._snackbar.open(`${this.label} mis à jour : ${this._value}`, "", {
+		this._snackbar.open(`${this.label} mis à jour : ${this.value}`, "", {
 			duration: 2000,
 		});
 	}

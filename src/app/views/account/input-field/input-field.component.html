@@ -1,5 +1,5 @@
 <mat-form-field class="field" appearance="legacy">
 	<mat-label>{{ label }}</mat-label>
-	<input [type]="inputType" matInput (input)="onChange($event)" [placeholder]="label"/>
-	<mat-icon matSuffix>mode_edit</mat-icon>
+	<input [type]="inputType" matInput (input)="onChange()" [(ngModel)]="value" [placeholder]="label"/>
+	<mat-icon matSuffix [ngStyle]="{'color':'#CD7575'}">mode_edit</mat-icon>
 </mat-form-field>

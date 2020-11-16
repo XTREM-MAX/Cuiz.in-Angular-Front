@@ -7,8 +7,12 @@
   </div>
 
 	<div class="frame">
-		<app-input-field inputType="text" label="Prénom, Nom"></app-input-field>
-		<app-input-field inputType="email" label="Email"></app-input-field>
-		<app-input-field inputType="date" label="Date de naissance"></app-input-field>
+		<app-input-field inputType="text" label="Prénom, Nom" [value]="name"></app-input-field>
+		<app-input-field inputType="email" label="Email" [value]="mail"></app-input-field>
+	</div>
+
+	<div class="frame frame-button">
+		<button>Changer mon mot de passe</button>
+		<mat-icon aria-label="Edit Password" [ngStyle]="{'color':'#CD7575'}">edit</mat-icon>
 	</div>
 </div>

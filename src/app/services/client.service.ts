@@ -71,8 +71,8 @@ export class ClientService {
       password,
       name,
     }, true);
-  }
-
+	}
+	
   public async get(url: string, notLogged?: boolean): Promise<any> {
     if (!this.token)
       throw new Error("Not connected");
