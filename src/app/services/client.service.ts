@@ -13,17 +13,25 @@ export class ClientService {
   base = "https://api.cuiz.in/";
 
   user: UserData;
-  private _token: string;
+  
+  get token(): string {
+    return window.localStorage.token;
+  }
+  set token(token: string) {
+    window.localStorage.token = token;
+  }
 
   get connected(): boolean {
-    return !!this._token;
+    return !!this.token;
   }
 
   constructor(public http: HttpClient) { }
 
   async init() {
-    this.recipes = await this.get("recipe/all");
-    this.user = await this.get("user/get");
+    if (this.token) {
+      this.recipes = await this.get("recipe/all");
+      this.user = await this.get("user/get");
+    }
   }
 
   async likeRecipe(recipe_id: string) {
@@ -50,7 +58,7 @@ export class ClientService {
       email,
       password,
     }, true);
-    this._token = token;
+    this.token = token;
     this.user = {
       email: mail,
       name
@@ -66,23 +74,23 @@ export class ClientService {
   }
 
   public async get(url: string, notLogged?: boolean): Promise<any> {
-    if (!this._token)
+    if (!this.token)
       throw new Error("Not connected");
     
     let response: any = await this.http.get(this.base + url, {
       headers: notLogged ? { } : {
-        "Authorization": this._token
+        "Authorization": this.token
       }
     }).toPromise();
     return response;
   }
   public async post(url: string, body: { [key: string]: string }, notLogged?: boolean): Promise<any> {
-    if (!this._token)
+    if (!this.token)
       throw new Error("Not connected");
     
     let response: any = await this.http.post(this.base+url, body, {
       headers: notLogged ? { } : {
-        "Authorization": this._token
+        "Authorization": this.token
       }
     }).toPromise();
     return response;

@@ -1,5 +1,6 @@
 import { Router } from '@angular/router';
 import { Component } from '@angular/core';
+import { ClientService } from './services/client.service';
 
 @Component({
   selector: 'app-root',
@@ -8,7 +9,8 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'Cuiz.in';
-  constructor(public router: Router) {
+  constructor(public router: Router, public client: ClientService) {
+    client.init();
     //Avoid touch default browser actions
 
     let lastCanceledTouches: Map<number, { element: HTMLElement, date: number }> = new Map();
