@@ -12,12 +12,14 @@
 }
 
 .titre {
+	margin-top: 25px;
   font-size: 48px;
   font-weight: bold;
   color: #ffffff;
 }
 
 .slogan {
+	line-height: 50px;
   font-size: 33px;
   margin-top: 35px;
   color: #ffffff;
@@ -75,7 +77,9 @@ img:hover {
 input {
   margin-top: 3px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0); /** Pour la transition (et que ça ne lag pas trop sur tel) **/
-  transition: box-shadow 0.2s;
+	transition: box-shadow 0.2s;
+  font-family: "montserrat";
+	
 }
 input:focus {
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -130,6 +134,9 @@ input:focus {
 
 .bouton:hover {
   transform: scale(0.97);
+}
+.bouton:active {
+	transform: scale(0.93);
 }
 
 /*# sourceMappingURL=style.css.map */

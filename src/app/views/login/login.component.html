@@ -1,7 +1,7 @@
 <div class="view">
   <div class="rectangle1">
     <div class="rectangle1_texte">
-      <div class="titre">Cuiz.in</div>
+      <h1 class="titre">Cuiz.in</h1>
       <div class="slogan">Vous n'aimez pas faire la cuisine ?<div class="join_us">Essayez Cuiz.in</div>
       </div>
     </div>
@@ -18,16 +18,16 @@
       <div class="form">
         <div>
           <label class="mail" for="Mail"> Votre e-mail : <br> </label>
-          <input class="barre_mail" placeholder="Votre e-mail" type="email" id="Mail" name="Mail">
+          <input class="barre_mail" placeholder="Votre e-mail" type="email" id="Mail" name="Mail" [(ngModel)]="email">
         </div>
 
         <div>
           <label class="mdp" for="Mot de passe"> Mot de passe : <br> </label>
-          <input class="barre_mdp" placeholder="Mot de passe" type="password" id="Mot de passe" name="Mot de passe">
+          <input class="barre_mdp" placeholder="Mot de passe" type="password" id="Mot de passe" name="Mot de passe" [(ngModel)]="password">
         </div>
 
         <div>
-          <input class="bouton" type="submit" value="Allons-y !">
+          <input class="bouton" type="submit" value="Allons-y !" [disabled]="!email || !password || !email.length || !password.length" (click)="onSubmit()">
         </div>
       </div>
     </div>
