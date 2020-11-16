@@ -21,7 +21,7 @@ export class ClientService {
     window.localStorage.token = token;
   }
 
-  get connected(): boolean {
+  get logged(): boolean {
     return !!this.token?.length;
   }
 
