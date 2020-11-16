@@ -22,7 +22,7 @@ export class ClientService {
   }
 
   get connected(): boolean {
-    return !!this.token;
+    return !!this.token?.length;
   }
 
   constructor(public http: HttpClient) { }
