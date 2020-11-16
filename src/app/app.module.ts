@@ -20,6 +20,7 @@ import { InputFieldComponent } from './views/account/input-field/input-field.com
 import { MatIconModule } from "@angular/material/icon";
 import { AccountComponent } from './views/account/account.component';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
 	declarations: [
@@ -45,7 +46,8 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
 		MatRippleModule,
 		MatInputModule,
 		MatIconModule,
-		MatSnackBarModule
+		MatSnackBarModule,
+		FormsModule,
 	],
 	bootstrap: [AppComponent]
 })
