@@ -21,6 +21,7 @@ import { MatIconModule } from "@angular/material/icon";
 import { AccountComponent } from './views/account/account.component';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
 	declarations: [
@@ -48,6 +49,7 @@ import { FormsModule } from '@angular/forms';
 		MatIconModule,
 		MatSnackBarModule,
 		FormsModule,
+		HttpClientModule,
 	],
 	bootstrap: [AppComponent]
 })
