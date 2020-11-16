@@ -2,24 +2,24 @@
   <!-- C'est une ligne -->
   <div class="infos">
     <!-- C'est une colonne -->
-    <span class="titrerecette">{{ recipe.name }}</span>
+    <span class="titrerecette">{{ recipe.recipe_name }}</span>
     <div class="temps">
-      <span>{{ recipe.time }} minute{{ recipe.time > 1 ? "s" : ""}}</span>
+      <span>{{ recipe.recipe_duration }} minute{{ recipe.recipe_duration > 1 ? "s" : ""}}</span>
       <img alt="Temps" draggable="false" src="../../../assets/icons/clock.svg">
     </div>
     <div class="personnes">
-      <span>{{ recipe.users }} personne{{ recipe.users > 1 ? "s" : ""}}</span>
+      <span>{{ recipe.recipe_people }} personne{{ recipe.recipe_people > 1 ? "s" : ""}}</span>
       <img alt="Portions" draggable="false" src="../../../assets/icons/account.svg">
     </div>
     <div class="heure">
       <div>
-        <span>{{ recipe.dateLiked }}</span>
-        <span>{{ recipe.hourLiked }}</span>
+        <span>{{ add0IfNeeded(recipe.created_date.getDate())+"/"+add0IfNeeded(recipe.created_date.getMonth() + 1)+"/"+add0IfNeeded(recipe.created_date.getUTCFullYear() + 1) }}</span>
+        <span>{{ add0IfNeeded(recipe.created_date.getHours() + 1)+":"+add0IfNeeded(recipe.created_date.getMinutes() + 1) }}</span>
       </div>
     <img alt="Aimé le" draggable="false" src="../../../assets/icons/heart.svg">
     </div>
   </div>
   <div class="img_recette">
-    <img alt="Image représentant la recette : {{ recipe.name }}" draggable="false" src="{{ recipe.imageUrl }}">
+    <img alt="Image représentant la recette : {{ recipe.recipe_name }}" draggable="false" src="https://www.nutriwi.com/img/recettes/{{ recipe.recipe_id }}">
   </div>
 </div>

@@ -1,10 +1,10 @@
 export class Recipe {
   constructor(
-    public name: string,
-    public imageUrl: string,
-    public time: number,
-    public users: number,
-    public dateLiked: string,
-    public hourLiked: string,
+    public recipe_id: string,
+    public recipe_name: string,
+    public recipe_duration: number,
+    public recipe_energy: number,
+    public recipe_people: number,
+    public created_date: Date,
   ) { }
 }
