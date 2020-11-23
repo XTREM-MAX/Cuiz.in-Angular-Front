@@ -6,7 +6,7 @@
 
   <app-recipe *ngFor="let recipe of client.recipes" [recipe]="recipe" [index]="client.recipes.indexOf(recipe)" [delayAnimation]="!initialized"></app-recipe>
   <div *ngIf="!client.recipes.length" class="nothing">
-    <img src="../../../assets/tumbleweed.svg" />
+    <img draggable="false" src="../../../assets/tumbleweed.svg" />
     <label class="calm">
       C'est trop calme...
     </label>
