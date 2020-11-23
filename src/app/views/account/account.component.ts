@@ -29,16 +29,11 @@ export class AccountComponent {
 			data: {
 				success: async (text: string) => {
 					//Create account
-					let success = false;
-					console.log("Modified to "+text)
-					try {
-						this._client.update("password", text);
-						success = true;
-					} catch (e) { }
-					
-					this._snackbar.open(success ? `Mot de passe mis à jour` : `Erreur lors de la mise à jour du mot de passe`, "", {
-						duration: 2000,
-					});
+					let response = await this._client.update("password", text);
+					if(response)
+						this._snackbar.open(response === "success" ? `Mot de passe mis à jour` : `Erreur lors de la mise à jour du mot de passe`, "", {
+							duration: 2000,
+						});
 				}
 			}
 		});

@@ -55,19 +55,22 @@ export class ClientService {
     return (await this.get(`recipe/${recipe_id}/details`)).payload;
   }
 
-  async update(field: string, value: string): Promise<boolean> {
+  async update(field: string, value: string): Promise<"error" |"success"> {
     if (field !== "password" && value == this.user[field])//Not changed
-      return false;
+      return undefined;
     
-    let payload = (await this.post("user/update", {
+    let response = (await this.post("user/update", {
       [field]: value
-    })).payload;
+    }));
+    if (response.code !== 200)
+      return "error";
+
     if(field !== "password")
       this.user[field] = value;
     
-    this.token = payload.token;
+    this.token = response.payload.token;
     localStorage.setItem("user", JSON.stringify(this.user));
-    return true;
+    return "success";
   }
 
   async login(email: string, password: string): Promise<"logged" | "bad_password" | "unknown_email"> {
