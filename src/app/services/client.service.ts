@@ -1,5 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { Router } from '@angular/router';
 import { Recipe } from '../models/recipes/Recipe';
 import RecipeResponse from './models/RecipeResponse';
 import UserData from './models/UserData';
@@ -25,7 +27,7 @@ export class ClientService {
     return !!this.token?.length;
   }
 
-  constructor(public http: HttpClient) { }
+  constructor(public http: HttpClient, public router: Router, public snackbar: MatSnackBar) { }
 
   async init() {
     if (this.token) {
@@ -129,7 +131,19 @@ export class ClientService {
     });
 
     return new Promise(executor => {
-      response.toPromise().then(executor).catch((error) => executor(error.error));
+      response.toPromise().then(executor).catch((error) => {
+        console.log(error)
+        if (error.status === 403) {
+          console.error("Not logged anymore... Disconnecting...")
+          this.token = undefined;
+          localStorage.removeItem("token");
+          this.router.navigateByUrl("/login");
+          this.snackbar.open("Vous avez été déconnecté", "", {
+            duration: 2000,
+          });
+        }
+        executor(error.error)
+      });
     });
   }
 
