@@ -11,7 +11,7 @@
 		<app-input-field inputType="email" label="Email" [value]="mail" type="email"></app-input-field>
 	</div>
 
-	<div class="frame frame-button" (click)="changePassword()">
+	<div class="frame frame-button" (click)="changePassword()" matRipple [matRippleColor]="$any('rgba(205, 117, 117, 0.308)')">
 		<button>Changer mon mot de passe</button>
 		<mat-icon aria-label="Edit Password" [ngStyle]="{'color':'#CD7575'}">edit</mat-icon>
 	</div>
