@@ -1,3 +1,4 @@
+import { UpdateService } from './services/update.service';
 import { LoginActivate } from './router/conditions/LoginActivate';
 import { NotLoggedActivate } from './router/conditions/NotLoggedActivate';
 import { LoginComponent } from './views/login/login.component';
@@ -43,7 +44,8 @@ import { PasswordFieldComponent } from './views/account/password-field/password-
 	],
 	providers: [
 		LoginActivate,
-		NotLoggedActivate,
+    NotLoggedActivate,
+    UpdateService
 	],
 	imports: [
 		BrowserModule,

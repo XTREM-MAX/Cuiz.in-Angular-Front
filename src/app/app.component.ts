@@ -1,3 +1,4 @@
+import { UpdateService } from './services/update.service';
 import { Router } from '@angular/router';
 import { Component } from '@angular/core';
 import { ClientService } from './services/client.service';
@@ -9,7 +10,7 @@ import { ClientService } from './services/client.service';
 })
 export class AppComponent {
   title = 'Cuiz.in';
-  constructor(public router: Router, public client: ClientService) {
+  constructor(public router: Router, public client: ClientService, update: UpdateService) {
     client.init();
     //Avoid touch default browser actions
 
@@ -21,7 +22,7 @@ export class AppComponent {
 
         //But we register that the client pressed in order to simulate a click if the user release the click before 500 ms (in that case it become a long press, not a click)
         lastCanceledTouches.set(e.changedTouches[0].identifier, { element: e.target as HTMLElement, date: Date.now() });
-        
+
         e.preventDefault();
         return false;
       }
@@ -33,7 +34,7 @@ export class AppComponent {
         //If the client started to press here and finished also here in less that 500ms, we simulate the click
         if (click.element === e.target && Date.now() < click.date + 500)
           (e.target as HTMLElement).click();
-        
+
         lastCanceledTouches.delete(id);
       }
     });
