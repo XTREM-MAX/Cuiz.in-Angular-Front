@@ -54,13 +54,16 @@ export class ClientService {
   }
 
   async update(field: string, value: string): Promise<boolean> {
-    if (value == this.user[field])//Not changed
+    if (field !== "password" && value == this.user[field])//Not changed
       return false;
     
-    await this.post("user/update", {
+    let payload = (await this.post("user/update", {
       [field]: value
-    });
-    this.user[field] = value;
+    })).payload;
+    if(field !== "password")
+      this.user[field] = value;
+    
+    this.token = payload.token;
     localStorage.setItem("user", JSON.stringify(this.user));
     return true;
   }
