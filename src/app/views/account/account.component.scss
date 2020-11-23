@@ -5,15 +5,15 @@
 	text-align: center;
 	box-shadow: 0 0 5px rgba(0, 0, 0, .03);
 	margin-top: 20px;
-	
+
 }
 .frame-button {
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
 	padding: 15px 20px;
-	cursor: pointer;
-	transition: box-shadow 250ms, transform 250ms;
+  cursor: pointer;
+  font-family: Roboto;
 	button {
     font-size: 16px;
 	}
