@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { connectableObservableDescriptor } from 'rxjs/internal/observable/ConnectableObservable';
 import { Recipe } from '../models/recipes/Recipe';
 import RecipeResponse from './models/RecipeResponse';
 import UserData from './models/UserData';
@@ -29,7 +30,7 @@ export class ClientService {
 
   async init() {
     if (this.token) {
-      this.recipes = (await this.get("recipe/all")).payload;
+      this.recipes = (await this.get("recipe/all")).payload.data;
       this.user = (await this.get("user/get")).payload;
     }
   }

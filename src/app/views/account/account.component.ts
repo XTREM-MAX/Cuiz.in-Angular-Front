@@ -6,18 +6,17 @@ import { ClientService } from 'src/app/services/client.service';
 	templateUrl: './account.component.html',
 	styleUrls: ['./account.component.scss']
 })
-export class AccountComponent implements OnInit {
+export class AccountComponent {
 
-	name: string;
-	mail: string;
+	get name() {
+		return this._client.user?.name;
+	}
+	get mail() {
+		return this._client.user?.email;
+	}
 	
 	constructor(
 		private _client: ClientService
 	) { }
-
-	ngOnInit() {
-		this.name = this._client.user?.name ?? "[Nom]";
-		this.mail = this._client.user?.email ?? "[Email]";
-	}
 
 }
