@@ -35,19 +35,15 @@ export class InputFieldComponent {
 		if (this.value == this.client.user[this.type])//Not changed
 			return;
 		
+		let success = false;
 		try {
-			await this.client.post("user/update", {
-				[this.type]: this.value
-			});
-			this.client.user[this.type] = this.value;
-			this._snackbar.open(`${this.label} mis à jour : ${this.value}`, "", {
-				duration: 2000,
-			});
-		} catch (e) {
-			this._snackbar.open(`Erreur lors de la mise à jour de ${this.label}`, "", {
-				duration: 2000,
-			});
-		}
+			this.client.update(this.type, this.value);
+			success = true;
+		} catch (e) { }
+		
+		this._snackbar.open(success ? `${this.label} mis à jour : ${this.value}` : `Erreur lors de la mise à jour de ${this.label}`, "", {
+			duration: 2000,
+		});
 	}
 
 }

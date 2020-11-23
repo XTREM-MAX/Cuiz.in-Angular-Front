@@ -1,6 +1,5 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { connectableObservableDescriptor } from 'rxjs/internal/observable/ConnectableObservable';
 import { Recipe } from '../models/recipes/Recipe';
 import RecipeResponse from './models/RecipeResponse';
 import UserData from './models/UserData';
@@ -13,8 +12,8 @@ export class ClientService {
   recipes: Recipe[] = [];
   base = "https://api.cuiz.in/";
 
-  user: UserData;
-  
+  user: UserData = localStorage.getItem("user") && JSON.parse(localStorage.getItem("user"));
+
   get token(): string {
     return window.localStorage.token;
   }
@@ -52,6 +51,18 @@ export class ClientService {
 
   async getRecipe(recipe_id: string): Promise<RecipeResponse> {
     return (await this.get(`recipe/${recipe_id}/details`)).payload;
+  }
+
+  async update(field: string, value: string): Promise<boolean> {
+    if (value == this.user[field])//Not changed
+      return false;
+    
+    await this.post("user/update", {
+      [field]: value
+    });
+    this.user[field] = value;
+    localStorage.setItem("user", JSON.stringify(this.user));
+    return true;
   }
 
   async login(email: string, password: string): Promise<"logged" | "bad_password" | "unknown_email"> {
@@ -93,7 +104,7 @@ export class ClientService {
   public async post(url: string, body: { [key: string]: string }, notLogged?: boolean): Promise<any> {
     if (!this.token && !notLogged)
       throw new Error("Not connected");
-    
+
     let response = this.http.post(this.base + url, body, {
       headers: notLogged ? {} : {
         "Authorization": this.token
@@ -107,7 +118,7 @@ export class ClientService {
   public async get(url: string, notLogged?: boolean): Promise<any> {
     if (!this.token && !notLogged)
       throw new Error("Not connected");
-    
+
     let response = this.http.get(this.base + url, {
       headers: notLogged ? {} : {
         "Authorization": this.token
