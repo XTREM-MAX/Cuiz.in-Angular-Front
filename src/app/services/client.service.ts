@@ -134,13 +134,13 @@ export class ClientService {
       response.toPromise().then(executor).catch((error) => {
         console.log(error)
         if (error.status === 403) {
-          console.error("Not logged anymore... Disconnecting...")
           this.token = undefined;
           localStorage.removeItem("token");
           this.router.navigateByUrl("/login");
           this.snackbar.open("Vous avez été déconnecté", "", {
             duration: 2000,
           });
+          console.error("Not logged anymore... Disconnecting...")
         }
         executor(error.error)
       });
