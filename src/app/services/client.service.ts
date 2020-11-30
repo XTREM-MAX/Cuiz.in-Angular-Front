@@ -95,6 +95,16 @@ export class ClientService {
     }
   }
 
+  async logout(): Promise<void> {
+    this.token = undefined;
+    localStorage.removeItem("token");
+    this.router.navigateByUrl("/login");
+    this.snackbar.open("Vous avez été déconnecté", "", {
+      duration: 2000,
+    });
+    this.router.navigateByUrl("/login");
+  }
+
   async register(email: string, password: string, name: string) {
     let response = await this.post("user/register", {
       email,
@@ -137,12 +147,7 @@ export class ClientService {
       response.toPromise().then(executor).catch((error) => {
         console.log(error)
         if (error.status === 403) {
-          this.token = undefined;
-          localStorage.removeItem("token");
-          this.router.navigateByUrl("/login");
-          this.snackbar.open("Vous avez été déconnecté", "", {
-            duration: 2000,
-          });
+          this.logout();
           console.error("Not logged anymore... Disconnecting...")
         }
         executor(error.error)

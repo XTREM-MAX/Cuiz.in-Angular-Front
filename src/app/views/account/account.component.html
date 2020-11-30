@@ -1,6 +1,6 @@
 <div class="view">
   <div class="grandtitre">
-		<span class="titre">Mon compte</span>
+		<app-header title="Mon Compte"></app-header>
 		<div class="name">
 			Bonjour, {{ name }}
 		</div>
@@ -14,5 +14,10 @@
 	<div class="frame frame-button" (click)="changePassword()" matRipple [matRippleColor]="$any('rgba(205, 117, 117, 0.308)')">
 		<button>Changer mon mot de passe</button>
 		<mat-icon aria-label="Edit Password" [ngStyle]="{'color':'#CD7575'}">edit</mat-icon>
+	</div>
+
+	<div class="frame frame-button disconnect-button" (click)="disconnect()" matRipple [matRippleColor]="$any('rgba(205, 117, 117, 0.308)')">
+		<button>Déconnexion</button>
+		<mat-icon aria-label="Disconnect">logout</mat-icon>
 	</div>
 </div>

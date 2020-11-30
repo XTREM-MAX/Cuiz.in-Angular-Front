@@ -1,7 +1,6 @@
 <div class="view">
   <div class="grandtitre">
-    <span class="titre">Recettes</span>
-    <img alt="Rechercher" draggable="false" srcset="../../../assets/icons/search.svg">
+    <app-header title="Recettes" searchBox="true"></app-header>
   </div>
 
   <app-recipe *ngFor="let recipe of client.recipes" [recipe]="recipe" [index]="client.recipes.indexOf(recipe)" [delayAnimation]="!initialized"></app-recipe>

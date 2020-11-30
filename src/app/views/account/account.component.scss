@@ -18,17 +18,18 @@
     font-size: 16px;
 	}
 }
+.disconnect-button {
+  background-color: rgb(205 117 117 / 0.35);
+
+  mat-icon {
+    color:black!important;
+  }
+}
+
 .grandtitre {
   display: block;
   flex-direction: row;
-  .titre {
-    display: block;
-    font-family: montserrat;
-    font-weight: bold;
-    color: rgb(205, 116, 116);
-    font-size: 30px;
-    margin-top: 20px;
-  }
+
   .name {
     margin-top: 30px;
     margin-left: 2px;
