@@ -27,6 +27,7 @@ import { LoginAskNameComponent } from './views/login/login-ask-name/login-ask-na
 import { MatButtonModule } from '@angular/material/button';
 import { MatDialogModule } from '@angular/material/dialog';
 import { PasswordFieldComponent } from './views/account/password-field/password-field.component';
+import { HeaderComponent } from './components/header/header.component';
 
 @NgModule({
 	declarations: [
@@ -41,6 +42,7 @@ import { PasswordFieldComponent } from './views/account/password-field/password-
 		AccountComponent,
 		LoginAskNameComponent,
 		PasswordFieldComponent,
+		HeaderComponent,
 	],
 	providers: [
 		LoginActivate,
