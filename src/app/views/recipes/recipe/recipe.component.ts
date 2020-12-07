@@ -1,21 +1,25 @@
 import { Recipe } from './../../../models/recipes/Recipe';
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-recipe',
   templateUrl: './recipe.component.html',
   styleUrls: ['./recipe.component.scss']
 })
-export class RecipeComponent {
+export class RecipeComponent implements OnInit {
 
   @Input() recipe: Recipe;
   @Input() index: number;
   @Input() delayAnimation: boolean;
 
   constructor() { }
-  
-  add0IfNeeded(value: number): string {
-    return value < 10 ? `0${value}` : value.toString();
+
+  public ngOnInit(): void {
+    this.recipe.created_date = new Date(this.recipe.created_date);
+  }
+
+  getDate(strDate: string): Date {
+    return new Date(strDate);
   }
 
 }
