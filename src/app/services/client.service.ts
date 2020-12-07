@@ -65,7 +65,7 @@ export class ClientService {
   }
 
   async getRecipe(recipe_id: string): Promise<RecipeDetails> {
-    return (await this.get(`recipe/${recipe_id}/details`)).payload.response;
+    return (await this.get(`recipe/${recipe_id}/details`)).payload;
   }
 
   async update(field: string, value: string): Promise<"error" |"success"> {
