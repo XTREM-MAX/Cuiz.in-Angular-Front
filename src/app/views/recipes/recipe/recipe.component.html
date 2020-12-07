@@ -13,13 +13,16 @@
     </div>
     <div class="heure">
       <div>
-        <span>{{ add0IfNeeded(recipe.created_date.getDate())+"/"+add0IfNeeded(recipe.created_date.getMonth() + 1)+"/"+add0IfNeeded(recipe.created_date.getUTCFullYear() + 1) }}</span>
-        <span>{{ add0IfNeeded(recipe.created_date.getHours() + 1)+":"+add0IfNeeded(recipe.created_date.getMinutes() + 1) }}</span>
+        <span>
+          {{ recipe.created_date.getDate().toString().padStart(2, "0") }}/{{ (recipe.created_date.getMonth() + 1).toString().padStart(2, "0") }}/{{ (recipe.created_date.getUTCFullYear() + 1) }}
+        </span>
+        <span>
+          {{ (recipe.created_date.getHours() + 1).toString().padStart(2, "0") }}:{{ (recipe.created_date.getMinutes() + 1).toString().padStart(2, "0") }}</span>
       </div>
     <img alt="Aimé le" draggable="false" src="../../../assets/icons/heart.svg">
     </div>
   </div>
   <div class="img_recette">
-    <img alt="Image représentant la recette : {{ recipe.recipe_name }}" draggable="false" src="https://www.nutriwi.com/img/recettes/{{ recipe.recipe_id }}">
+    <img alt="Image représentant la recette : {{ recipe.recipe_name }}" draggable="false" src="https://www.nutriwi.com/img/recettes/{{ recipe.recipe_id }}.jpg">
   </div>
 </div>
