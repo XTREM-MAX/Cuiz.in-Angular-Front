@@ -77,6 +77,9 @@ export class HomeComponent implements AfterViewInit {
   }
 
   loadNewCard(liked: boolean) {
+    if (liked) {
+      this.client.likeRecipe(this.client.homeRecipe.recipe.nameSlugify);
+    }
     setTimeout(() => {
     this.transitioning = true;
       this.firstcard.nativeElement.style.transform = this.firstcard.nativeElement.style.transition = this.firstcard.nativeElement.style.opacity = "";
@@ -104,7 +107,7 @@ export class HomeComponent implements AfterViewInit {
               this.firstcard.nativeElement.style.transition = this.firstcard.nativeElement.style.transformOrigin = "";
             }, 450);
           }, 50);
-        }, 300);
+        }, 400);
       }, 10);
     }, 400);
   }
