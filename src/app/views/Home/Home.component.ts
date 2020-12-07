@@ -49,6 +49,19 @@ export class HomeComponent implements AfterViewInit {
         }
       }
     });
+    viewElement.addEventListener("touchstart", (event) => {
+      let target = event.target as HTMLElement;
+      while (target != null && target != this.firstcard.nativeElement)
+        target = target.parentElement;
+      
+      if (target) {
+        pressedElement = target;
+        started = {
+          x: event.touches[0].clientX,
+          y: event.touches[0].clientX
+        }
+      }
+    });
     viewElement.addEventListener("mouseup", (event) => {
       if (pressedElement)
         if (event.clientX - started.x > 100) {
@@ -66,6 +79,31 @@ export class HomeComponent implements AfterViewInit {
           pressedElement.style.transition = pressedElement.style.transform = "";
         }
       pressedElement = undefined;
+    });
+    viewElement.addEventListener("touchend", (event) => {
+      if (pressedElement)
+        if (event.changedTouches[0].clientX - started.x > 100) {
+          pressedElement.style.transition = "transform .3s cubic-bezier(.3,.83,.52,.92), opacity .3s";
+          pressedElement.style.transform = "translateX(400px) scale(.95) rotateZ(5deg)";
+          pressedElement.style.opacity = ".01";
+          //like
+          this.loadNewCard(true);
+        }else if (event.changedTouches[0].clientX - started.x < -100) {
+          pressedElement.style.transition = "transform .3s cubic-bezier(.3,.83,.52,.92), opacity .3s";
+          pressedElement.style.transform = "translateX(-400px) scale(.95) rotateZ(-5deg)";
+          pressedElement.style.opacity = ".01";
+          this.loadNewCard(false);
+        } else {
+          pressedElement.style.transition = pressedElement.style.transform = "";
+        }
+      pressedElement = undefined;
+    });
+    viewElement.addEventListener("touchmove", (event) => {
+      if (pressedElement) {
+        let diff = event.changedTouches[0].clientX - started.x;
+        pressedElement.style.transition = "initial";
+        pressedElement.style.transform = `translateX(${(diff > 0 ? 2 : -2) * Math.pow(Math.abs(diff), .5)}px) rotateZ(${(diff > 0 ? 2 : -2)/20  * Math.pow(Math.abs(diff), .5)}deg) scale(${1 - 2/2000 * Math.pow(Math.abs(diff), .5)})`;
+      }
     });
     viewElement.addEventListener("mousemove", (event) => {
       if (pressedElement) {
