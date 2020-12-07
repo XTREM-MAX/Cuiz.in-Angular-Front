@@ -3,6 +3,6 @@
 <img alt="Rechercher" draggable="false" (click)="openSearchBar()" srcset="../../../assets/icons/search.svg" *ngIf="searchBox && !displaySearchBar">
 
 <div *ngIf="displaySearchBar" class="searchbar-container">
-  <input autofocus type="text" placeholder="Recherchez une recette">
+  <input autofocus type="text" placeholder="Recherchez une recette" [(ngModel)]="client.search">
   <img alt="Rechercher" draggable="false" (click)="openSearchBar()" srcset="../../../assets/icons/close.svg" (click)="openSearchBar()">
 </div>

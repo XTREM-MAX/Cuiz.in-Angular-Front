@@ -1,4 +1,5 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { ClientService } from '../../services/client.service';
 
 @Component({
   selector: 'app-header',
@@ -15,12 +16,14 @@ export class HeaderComponent implements OnInit {
 
   displaySearchBar: boolean = false;
 
-  constructor() { }
+  constructor(public client: ClientService) { }
 
   ngOnInit(): void {
+    this.client.search = "";
   }
 
-  openSearchBar(){
+  openSearchBar() {
+    this.client.search = "";
     this.displaySearchBar=!this.displaySearchBar;
   }
 

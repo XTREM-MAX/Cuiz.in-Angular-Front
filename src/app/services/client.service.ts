@@ -12,7 +12,14 @@ import UserData from './models/UserData';
 })
 export class ClientService {
 
-  recipes: Recipe[] = [];
+  search = "";
+
+  recipes: Recipe[] = (localStorage.getItem("liked") && JSON.parse(localStorage.getItem("liked"))) || [];
+
+  updateRecipes() {
+    localStorage.setItem("liked", JSON.stringify(this.recipes));
+  }
+
   base = "https://api.cuiz.in/";
 
   user: UserData = localStorage.getItem("user") && JSON.parse(localStorage.getItem("user"));
@@ -44,6 +51,7 @@ export class ClientService {
   async init() {
     if (this.token) {
       this.recipes = (await this.get("recipe/all")).payload.data;
+      this.updateRecipes();
       this.user = (await this.get("user/get")).payload;
     }
 
@@ -53,8 +61,10 @@ export class ClientService {
 
   async likeRecipe(recipe_id: string) {
     let added: Recipe = (await this.get(`recipe/add/?recipe_id=${recipe_id}`)).payload;
-    if(added)
+    if (added) {
       this.recipes.push(added);
+      this.updateRecipes();
+    }
   }
   async dislikeRecipe(recipe_id: string) {
     let added: Recipe = (await this.get(`/recipe/${recipe_id}/remove`)).payload;

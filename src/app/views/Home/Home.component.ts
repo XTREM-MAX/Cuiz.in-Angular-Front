@@ -76,10 +76,9 @@ export class HomeComponent implements AfterViewInit {
     });
   }
 
-  loadNewCard(liked: boolean) {
-    if (liked) {
-      this.client.likeRecipe(this.client.homeRecipe.recipe.nameSlugify);
-    }
+  latestSkip: string[] = [];
+
+  async loadNewCard(liked: boolean) {
     setTimeout(() => {
     this.transitioning = true;
       this.firstcard.nativeElement.style.transform = this.firstcard.nativeElement.style.transition = this.firstcard.nativeElement.style.opacity = "";
@@ -113,6 +112,20 @@ export class HomeComponent implements AfterViewInit {
         }, 400);
       }, 10);
     }, 400);
+
+    this.latestSkip.push(this.client.homeRecipe.recipe.nameSlugify);
+    if (liked) {
+      try {
+        this.client.likeRecipe(this.client.homeRecipe.recipe.nameSlugify);
+      } catch (e) { }
+      for (let suggestion of this.client.homeRecipe.suggestions) {
+        if (!this.latestSkip.includes(suggestion.nameSlugify)) {
+          this.client.homeRecipe = await this.client.getRecipe(suggestion.nameSlugify);
+          break;
+        }
+      }
+    }else
+      this.client.homeRecipe = await this.client.getRecipe((await this.client.random()).recipe.nameSlugify);
   }
 
 }
