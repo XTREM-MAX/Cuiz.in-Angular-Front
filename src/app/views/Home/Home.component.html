@@ -16,7 +16,7 @@
         <div class="bas_de_la_page">
           <div class="informations_precises">
             <p> <img class="temps" src="../../../assets/icons/clock.svg"> {{ client.homeRecipe.recipe.time.total }} minutes </p>
-            <p> <img class="nombre_personne" src="../../../assets/icons/account.svg"> {{ client.homeRecipe.recipe.quantity.portion }} personne {{ (+client.homeRecipe.recipe.quantity.portion > 0 ? "s" : "") }} </p>
+            <p> <img class="nombre_personne" src="../../../assets/icons/account.svg"> {{ client.homeRecipe.recipe.quantity.portion }} personne{{ +client.homeRecipe.recipe.quantity.portion > 0 ? "s" : "" }} </p>
             <p> <img class="energie" src="../../../assets/icons/energy.svg">{{ parseInt(client.homeRecipe.recipe.nutriments.energy) }} kcal</p>
           </div>
 
