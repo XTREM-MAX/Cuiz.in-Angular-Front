@@ -22,14 +22,14 @@ section {
   border-radius: 20px;
   transform-origin: bottom right;
   z-index: 3;
-  transform-style: preserve-3d;
 
-  .hidingRotated{
-    perspective: 0px;
-    position: absolute;
-    height: 100%;
-    width: 100%;
-    background-color: #F1F6F6;
+  &.hiding {
+    .hidingRotated{
+      position: absolute;
+      height: 100%;
+      width: 100%;
+      background-color: #F1F6F6;
+    }
   }
   &.notransition {
     transition: none;

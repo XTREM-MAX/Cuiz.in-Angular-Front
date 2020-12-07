@@ -53,7 +53,8 @@ export class ClientService {
 
   async likeRecipe(recipe_id: string) {
     let added: Recipe = (await this.get(`recipe/add/?recipe_id=${recipe_id}`)).payload;
-    this.recipes.push(added);
+    if(added)
+      this.recipes.push(added);
   }
   async dislikeRecipe(recipe_id: string) {
     let added: Recipe = (await this.get(`/recipe/${recipe_id}/remove`)).payload;

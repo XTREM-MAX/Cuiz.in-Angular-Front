@@ -38,7 +38,7 @@ export class HomeComponent implements AfterViewInit {
     }
     viewElement.addEventListener("mousedown", (event) => {
       let target = event.target as HTMLElement;
-      while (target != null && target.nodeName != "SECTION")
+      while (target != null && target != this.firstcard.nativeElement)
         target = target.parentElement;
       
       if (target) {
@@ -83,15 +83,15 @@ export class HomeComponent implements AfterViewInit {
     setTimeout(() => {
     this.transitioning = true;
       this.firstcard.nativeElement.style.transform = this.firstcard.nativeElement.style.transition = this.firstcard.nativeElement.style.opacity = "";
-      this.firstcard.nativeElement.className = "end notransition";
+      this.firstcard.nativeElement.className = "end notransition hiding";
       this.secondcard.nativeElement.className = "second notransition";
       this.lastcard.nativeElement.className = "last notransition";
       setTimeout(() => {
-        this.firstcard.nativeElement.className = "last notransition";
+        this.firstcard.nativeElement.className = "last notransition hiding";
         this.secondcard.nativeElement.className = "";
         this.lastcard.nativeElement.className = "second";
         setTimeout(() => {
-          this.firstcard.nativeElement.className = "notransition";
+          this.firstcard.nativeElement.className = "notransition hiding";
           this.firstcard.nativeElement.style.transformOrigin = "center"
           this.firstcard.nativeElement.style.transform = "rotateY(180deg)"
           this.firstcard.nativeElement.style.boxShadow = "-10px 0px 20px -15px rgba(0, 0, 0, 0.14)"
@@ -99,8 +99,11 @@ export class HomeComponent implements AfterViewInit {
           this.lastcard.nativeElement.className = "last notransition";
           this.transitioning = false;
           setTimeout(() => {
-            this.firstcard.nativeElement.style.transition = "transform .5s cubic-bezier(.21,.96,.52,1.47)"
-            this.firstcard.nativeElement.className = "";
+            this.firstcard.nativeElement.style.transition = "transform .5s cubic-bezier(.21,.96,.52,1.47)";
+            setTimeout(() => {
+              this.firstcard.nativeElement.className = "";
+            }, 100);
+            this.firstcard.nativeElement.className = "hiding";
             this.firstcard.nativeElement.style.transform = ""
             this.firstcard.nativeElement.style.boxShadow = "";
             setTimeout(() => {
