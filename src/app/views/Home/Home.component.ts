@@ -91,6 +91,7 @@ export class HomeComponent implements AfterViewInit {
           this.firstcard.nativeElement.className = "notransition";
           this.firstcard.nativeElement.style.transformOrigin = "center"
           this.firstcard.nativeElement.style.transform = "rotateY(180deg)"
+          this.firstcard.nativeElement.style.boxShadow = "-10px 0px 20px -15px rgba(0, 0, 0, 0.14)"
           this.secondcard.nativeElement.className = "second notransition";
           this.lastcard.nativeElement.className = "last notransition";
           this.transitioning = false;
@@ -98,6 +99,7 @@ export class HomeComponent implements AfterViewInit {
             this.firstcard.nativeElement.style.transition = "transform .5s cubic-bezier(.21,.96,.52,1.47)"
             this.firstcard.nativeElement.className = "";
             this.firstcard.nativeElement.style.transform = ""
+            this.firstcard.nativeElement.style.boxShadow = "";
             setTimeout(() => {
               this.firstcard.nativeElement.style.transition = this.firstcard.nativeElement.style.transformOrigin = "";
             }, 450);
