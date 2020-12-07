@@ -101,14 +101,16 @@ export class HomeComponent implements AfterViewInit {
     viewElement.addEventListener("touchmove", (event) => {
       if (pressedElement) {
         let diff = event.changedTouches[0].clientX - started.x;
-        pressedElement.style.transition = "initial";
+        if(pressedElement.style.transition != "initial")
+          pressedElement.style.transition = "initial";
         pressedElement.style.transform = `translateX(${(diff > 0 ? 2 : -2) * Math.pow(Math.abs(diff), .5)}px) rotateZ(${(diff > 0 ? 2 : -2)/20  * Math.pow(Math.abs(diff), .5)}deg) scale(${1 - 2/2000 * Math.pow(Math.abs(diff), .5)})`;
       }
     });
     viewElement.addEventListener("mousemove", (event) => {
       if (pressedElement) {
         let diff = event.clientX - started.x;
-        pressedElement.style.transition = "initial";
+        if(pressedElement.style.transition != "initial")
+          pressedElement.style.transition = "initial";
         pressedElement.style.transform = `translateX(${(diff > 0 ? 2 : -2) * Math.pow(Math.abs(diff), .5)}px) rotateZ(${(diff > 0 ? 2 : -2)/20  * Math.pow(Math.abs(diff), .5)}deg) scale(${1 - 2/2000 * Math.pow(Math.abs(diff), .5)})`;
       }
     });
