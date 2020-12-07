@@ -11,3 +11,28 @@ img {
   margin-top: -24px;
   float: right;
 }
+
+.searchbar-container {
+  z-index:1;
+  position:absolute;
+  top:0;
+  left:0;
+  right:0;
+  margin:20px;
+
+  input {
+    border-radius:5px;
+    border:none;
+    padding:10px 10px;
+    width:87%;
+    display: inline-block;
+    font-size: 16px;
+    outline: none;
+  }
+
+  img {
+    display:inline-block;
+    margin-top:10px;
+    height: 20px;
+  }
+}
