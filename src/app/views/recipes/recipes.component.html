@@ -1,4 +1,4 @@
-<div class="view" [style.overflow]="focusedRecipe ? 'hidden' : 'hidden'" style="position: relative;">
+<div class="view" [style.overflow]="focusedRecipe ? 'hidden' : ''" style="position: relative;">
   <app-header title="Recettes" [searchBox]="true"></app-header>
 
   <app-recipe *ngFor="let recipe of client.recipes" [recipe]="recipe" [index]="client.recipes.indexOf(recipe)" [delayAnimation]="!initialized" (click)="focusedRecipe = recipe"></app-recipe>
