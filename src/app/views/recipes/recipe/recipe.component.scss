@@ -80,7 +80,7 @@
     overflow: hidden;
     height: fit-content;
     img {
-      height: 15vw;
+      height: get-vws(30);
       object-fit: cover;
       border-radius: get-vws(4.5);
       width: 100%;
