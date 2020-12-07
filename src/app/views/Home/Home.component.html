@@ -1,25 +1,26 @@
-<div class="view">
+<div class="view" #view>
   <app-header title="Cuiz.in"></app-header>
-  <div class="wrapper">
-    <section></section>
-    <section></section>
+  <div class="wrapper" *ngIf="client.homeRecipe?.recipe">
+    <section class="real"></section>
+    <section class="real"></section>
     <section>
-      <img class="image" src="../Home/Images/My big burger.jpeg">
+      <div class="image" [style.backgroundImage]="'url(https://www.nutriwi.com/img/recettes/' + client.homeRecipe.recipe.nameSlugify + '.jpg)'"></div>
 
       <div class="informations_generales_plat">
-        <a class="nom_du_plat">Plat <img class="vegetarien" src="../../../assets/icons/feuille.svg"></a>
+        <a class="nom_du_plat">{{ client.homeRecipe.recipe.name }}</a>
+        <img *ngIf="client.homeRecipe.recipe.tags.diets.includes('vegetarien') || client.homeRecipe.recipe.tags.diets.includes('vegetalien')" class="vegetarien" src="../../../assets/icons/feuille.svg">
       </div>
 
       <div class="bas_de_la_page">
         <div class="informations_precises">
-          <p> <img class="temps" src="../../../assets/icons/clock.svg"> 30 ans </p>
-          <p> <img class="nombre_personne" src="../../../assets/icons/account.svg"> 30 </p>
-          <p> <img class="energie" src="../../../assets/icons/energy.svg"> 1 0000 000 kcal. </p>
+          <p> <img class="temps" src="../../../assets/icons/clock.svg"> {{ client.homeRecipe.recipe.time.total }} minutes </p>
+          <p> <img class="nombre_personne" src="../../../assets/icons/account.svg"> {{ client.homeRecipe.recipe.quantity.portion }} personne {{ (+client.homeRecipe.recipe.quantity.portion > 0 ? "s" : "") }} </p>
+          <p> <img class="energie" src="../../../assets/icons/energy.svg">{{ parseInt(client.homeRecipe.recipe.nutriments.energy) }} kcal</p>
         </div>
 
         <div class="likes">
           <img class="coeur" src="../../../assets/icons/heart-red.svg">
-          <p class="nombre_likes">87889</p>
+          <p class="nombre_likes">1</p>
         </div>
       </div>
     </section>

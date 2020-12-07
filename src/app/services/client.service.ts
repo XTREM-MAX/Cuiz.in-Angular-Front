@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 import { Recipe } from '../models/recipes/Recipe';
+import { RecipeDetails } from './models/RecipeDetails';
 import RecipeResponse from './models/RecipeResponse';
 import UserData from './models/UserData';
 
@@ -12,7 +13,7 @@ import UserData from './models/UserData';
 export class ClientService {
 
   recipes: Recipe[] = [];
-  base = "https://api.cuiz.in/";
+  base = "http://localhost:3000/";
 
   user: UserData = localStorage.getItem("user") && JSON.parse(localStorage.getItem("user"));
 
@@ -27,6 +28,17 @@ export class ClientService {
     return !!this.token?.length;
   }
 
+  private homeRecipe_: RecipeDetails = localStorage.getItem("homeRecipe") && JSON.parse(localStorage.getItem("homeRecipe"));
+  get homeRecipe(): RecipeDetails {
+    return this.homeRecipe_;
+  }
+  set homeRecipe(homeRecipe: RecipeDetails) {
+    if(homeRecipe)
+      localStorage.setItem("homeRecipe", JSON.stringify(this.homeRecipe_ = homeRecipe));
+    else
+      localStorage.removeItem("homeRecipe");
+  }
+
   constructor(public http: HttpClient, public router: Router, public snackbar: MatSnackBar) { }
 
   async init() {
@@ -34,6 +46,9 @@ export class ClientService {
       this.recipes = (await this.get("recipe/all")).payload.data;
       this.user = (await this.get("user/get")).payload;
     }
+
+    if (!this.homeRecipe)
+      this.homeRecipe = await this.getRecipe((await this.random()).recipe.nameSlugify);
   }
 
   async likeRecipe(recipe_id: string) {
@@ -47,12 +62,12 @@ export class ClientService {
     this.recipes.push(added);
   }
 
-  async random(): Promise<RecipeResponse> {
-    return (await this.get("recipe/random")).payload.recipe;
+  async random(): Promise<RecipeDetails> {
+    return (await this.get("recipe/random")).payload;
   }
 
-  async getRecipe(recipe_id: string): Promise<RecipeResponse> {
-    return (await this.get(`recipe/${recipe_id}/details`)).payload;
+  async getRecipe(recipe_id: string): Promise<RecipeDetails> {
+    return (await this.get(`recipe/${recipe_id}/details`)).payload.response;
   }
 
   async update(field: string, value: string): Promise<"error" |"success"> {

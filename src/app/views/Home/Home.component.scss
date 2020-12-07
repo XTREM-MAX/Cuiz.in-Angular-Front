@@ -13,16 +13,17 @@ section {
   bottom:0;
   width: 100%;
   position: absolute;
+  transition: transform .4s cubic-bezier(.21,.96,.52,1.47);
   height: 100%;
   background: #F1F6F6;
   box-shadow: 10px 0px 20px -15px rgba(0, 0, 0, 0.14);
   border-radius: 20px;
-  &:nth-child(1) {
+  &.real:nth-child(1) {
     height: 95%;
     transform-origin: bottom right;
     transform: rotateZ(3.5deg);
   }
-  &:nth-child(2) {
+  &.real:nth-child(2) {
     height: 98%;
     transform-origin: bottom right;
     transform: rotateZ(2deg);
@@ -30,13 +31,13 @@ section {
 }
 
 .image {
+  background-position: center center;
   border-radius: 20px;
-  width: 259px;
   height: 219px;
   margin-left: 17px;
   margin-top: 17px;
   margin-right: 17px;
-  margin-bottom: 13px
+  margin-bottom: 20px
 }
 
 .informations_generales_plat {
