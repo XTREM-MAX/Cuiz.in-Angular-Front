@@ -11,22 +11,45 @@
 }
 section {
   bottom:0;
+  overflow: hidden;
   width: 100%;
+  opacity: 1;
   position: absolute;
-  transition: transform .4s cubic-bezier(.21,.96,.52,1.47);
+  transition: transform .3s cubic-bezier(.21,.96,.52,1.47), height .3s cubic-bezier(.21,.96,.52,1.47);
   height: 100%;
   background: #F1F6F6;
   box-shadow: 10px 0px 20px -15px rgba(0, 0, 0, 0.14);
   border-radius: 20px;
-  &.real:nth-child(1) {
-    height: 95%;
-    transform-origin: bottom right;
-    transform: rotateZ(3.5deg);
+  transform-origin: bottom right;
+  z-index: 3;
+  transform-style: preserve-3d;
+
+  .hidingRotated{
+    perspective: 0px;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background-color: #F1F6F6;
   }
-  &.real:nth-child(2) {
+  &.notransition {
+    transition: none;
+  }
+  &.second {
+    z-index: 2;
     height: 98%;
-    transform-origin: bottom right;
     transform: rotateZ(2deg);
+    transition-delay: .1s;
+  }
+  &.last {
+    z-index: 1;
+    height: 95%;
+    transform: rotateZ(3.5deg);
+    transition-delay: .2s;
+  }
+  &.end {
+    z-index: 0;
+    height: 92%;
+    transform: rotateZ(4.5deg);
   }
 }
 
