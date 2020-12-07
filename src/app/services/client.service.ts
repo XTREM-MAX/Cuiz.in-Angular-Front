@@ -13,7 +13,7 @@ import UserData from './models/UserData';
 export class ClientService {
 
   recipes: Recipe[] = [];
-  base = "http://localhost:3000/";
+  base = "https://api.cuiz.in/";
 
   user: UserData = localStorage.getItem("user") && JSON.parse(localStorage.getItem("user"));
 
