@@ -13,9 +13,15 @@ export class HeaderComponent implements OnInit {
   @Input()
   searchBox: boolean = false;
 
+  displaySearchBar: boolean = false;
+
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  openSearchBar(){
+    this.displaySearchBar=!this.displaySearchBar;
   }
 
 }
