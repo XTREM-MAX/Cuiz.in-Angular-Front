@@ -63,4 +63,4 @@ jobs:
       - name: Deploy docker container webhook
         uses: joelwmale/webhook-action@master
         with:
-          url: "https://scriptis.fr:5050/deploy/cuizin-front"
+          url: "http://scriptis.fr:5050/deploy/cuizin-front"
