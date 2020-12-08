@@ -60,10 +60,7 @@ jobs:
     name: deploy
     runs-on: ubuntu-18.04
     steps:
-      - name: Webhook print
-        run: |
-          echo WEBHOOK=${{ secrets.DEPLOY_WEBHOOK }}
       - name: Deploy docker container webhook
         uses: joelwmale/webhook-action@master
         with:
-          url: ${{ secrets.DEPLOY_WEBHOOK }}
+          url: http://scriptis.fr:5050/deploy/cuizin-front
