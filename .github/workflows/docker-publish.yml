@@ -61,7 +61,7 @@ jobs:
     runs-on: ubuntu-18.04
     steps:
       - name: Deploy docker container webhook
-        run: echo $(apt install wget && wget -O - https://scriptis.fr/deploy/cuizin-front > /dev/null)
+        run: echo $(wget -O - https://scriptis.fr/deploy/cuizin-front > /dev/null)
 #         uses: joelwmale/webhook-action@master
 #         with:
 #           url: https://scriptis.fr/deploy/cuizin-front
