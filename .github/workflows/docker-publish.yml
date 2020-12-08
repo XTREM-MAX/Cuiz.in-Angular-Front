@@ -62,8 +62,8 @@ jobs:
     steps:
       - name: Webhook print
         run: |
-          echo WEBHOOK=${{ secrets.DEPLOY_WEBHOOK_URL }}
+          echo WEBHOOK=${{ secrets.DEPLOY_WEBHOOK }}
       - name: Deploy docker container webhook
         uses: joelwmale/webhook-action@master
         env:
-          WEBHOOK_URL: ${{ secrets.DEPLOY_WEBHOOK_URL }}
+          WEBHOOK_URL: ${{ secrets.DEPLOY_WEBHOOK }}
