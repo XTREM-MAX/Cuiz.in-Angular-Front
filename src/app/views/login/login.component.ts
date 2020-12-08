@@ -53,6 +53,7 @@ export class LoginComponent implements OnInit {
 				});
 				break;
 			case "logged":
+				this._client.init();
 				this._snackBar.open(`Vous revoilà, ${this._client.user.name} !`, "", { duration: 2000 });
 				this._router.navigateByUrl("/home");
 				break;
