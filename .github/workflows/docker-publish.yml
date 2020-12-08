@@ -60,6 +60,9 @@ jobs:
     name: deploy
     runs-on: ubuntu-18.04
     steps:
+      - name: Webhook print
+        run: |
+          echo WEBHOOK=${{ secrets.DEPLOY_WEBHOOK_URL }}
       - name: Deploy docker container webhook
         uses: joelwmale/webhook-action@master
         env:
