@@ -1,0 +1,26 @@
+.recipe-view {
+  position: absolute;
+  top: 70px;
+  left: 50%;
+  transform: translateX(-50%);
+  overflow: hidden;
+  width: 95%;
+  margin: auto;
+  min-height: 80vh;
+  z-index: inherit;
+
+  .inner-view {
+    border-radius: 35px;
+    background-color: white;
+    position: relative;
+    width: 100%;
+    min-height: 80vh;
+
+
+    .header-bar {
+      margin: 10px 0;
+      width: 20%;
+      background-color: #C7BDBD;
+    }
+  }
+}

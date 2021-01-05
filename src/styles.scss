@@ -23,13 +23,14 @@ body {
   user-drag: none;
 }
 .view {
-    display: block;
-    padding: 0 18px;
+  overflow-x: hidden;
+  display: block;
+  padding: 0 18px;
 }
 .withbottombar {
   .view {
     height: calc(100vh - 56px);
-    overflow: auto;
+    overflow-y: auto;
   }
 }
 
@@ -37,7 +38,7 @@ body {
   .withbottombar {
     .view {
       height: calc(90vh - 56px);
-      overflow: auto;
+      overflow-y: auto;
     }
   }
 }

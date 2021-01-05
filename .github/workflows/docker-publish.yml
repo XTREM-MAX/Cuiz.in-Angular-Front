@@ -18,8 +18,8 @@ env:
   IMAGE_NAME: cuizin-front
 
 jobs:
-  # Push image to GitHub Packages.
-  # See also https://docs.docker.com/docker-hub/builds/
+#   Push image to GitHub Packages.
+#   See also https://docs.docker.com/docker-hub/builds/
   push:
     runs-on: ubuntu-latest
     if: github.event_name == 'push'
@@ -61,6 +61,4 @@ jobs:
     runs-on: ubuntu-18.04
     steps:
       - name: Deploy docker container webhook
-        uses: joelwmale/webhook-action@master
-        env:
-          WEBHOOK_URL: ${{ secrets.DEPLOY_WEBHOOK_URL }}
+        run: echo $(wget -O - ${{ secrets.DEPLOY_WEBHOOK_URL }} > /dev/null)

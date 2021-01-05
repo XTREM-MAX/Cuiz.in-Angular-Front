@@ -27,6 +27,9 @@ import { LoginAskNameComponent } from './views/login/login-ask-name/login-ask-na
 import { MatButtonModule } from '@angular/material/button';
 import { MatDialogModule } from '@angular/material/dialog';
 import { PasswordFieldComponent } from './views/account/password-field/password-field.component';
+import { HeaderComponent } from './components/header/header.component';
+import { RecipeViewComponent } from './views/recipes/recipe-view/recipe-view.component';
+import { DragDropModule } from '@angular/cdk/drag-drop';
 
 @NgModule({
 	declarations: [
@@ -41,6 +44,8 @@ import { PasswordFieldComponent } from './views/account/password-field/password-
 		AccountComponent,
 		LoginAskNameComponent,
 		PasswordFieldComponent,
+		HeaderComponent,
+		RecipeViewComponent,
 	],
 	providers: [
 		LoginActivate,
@@ -59,7 +64,8 @@ import { PasswordFieldComponent } from './views/account/password-field/password-
 		FormsModule,
 		HttpClientModule,
 		MatButtonModule,
-		MatDialogModule,
+    MatDialogModule,
+    DragDropModule
 	],
 	bootstrap: [AppComponent]
 })

@@ -1,11 +1,6 @@
-interface RecipeResponse {
-  result: Result;
-  status: number;
-}
-
 export default RecipeResponse;
 
-interface Result {
+interface RecipeResponse {
   _id: string;
   name: string;
   nameSlugify: string;

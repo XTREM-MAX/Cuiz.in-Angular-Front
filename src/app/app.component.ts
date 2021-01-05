@@ -38,7 +38,7 @@ export class AppComponent {
         lastCanceledTouches.delete(id);
       }
     });
-    document.addEventListener('touchmove', e => { e.preventDefault(); return false }, { passive: false });//Avoid touch default browser actions
+    //document.addEventListener('touchmove', e => { e.preventDefault(); return false }, { passive: false });//Avoid touch default browser actions
     document.addEventListener('contextmenu',  e => e.preventDefault()); //Avoid right clicking & long press
   }
 }

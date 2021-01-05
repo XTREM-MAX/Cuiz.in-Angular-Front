@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { Router } from '@angular/router';
 import { ClientService } from 'src/app/services/client.service';
 import { PasswordFieldComponent } from './password-field/password-field.component';
 
@@ -22,6 +23,7 @@ export class AccountComponent {
 		private _client: ClientService,
 		public dialog: MatDialog,
 		private _snackbar: MatSnackBar,
+		private _router: Router,
 	) { }
 
 	public changePassword() {
@@ -37,6 +39,10 @@ export class AccountComponent {
 				}
 			}
 		});
+	}
+
+	public disconnect() {
+		this._client.logout();
 	}
 
 }

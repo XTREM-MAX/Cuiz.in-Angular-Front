@@ -1,0 +1,117 @@
+*{
+  font-family: light;
+}
+.wrapper {
+  position: relative;
+  margin: auto;
+  margin-top: 10%;
+  width: 90%;
+  height: 80%;
+  margin-left: 7px;
+}
+section {
+  will-change: transform;
+  bottom:0;
+  overflow: hidden;
+  width: 100%;
+  opacity: 1;
+  position: absolute;
+  transition: transform .3s cubic-bezier(.21,.96,.52,1.47), height .3s cubic-bezier(.21,.96,.52,1.47);
+  height: 100%;
+  background: #F1F6F6;
+  box-shadow: 10px 0px 20px -15px rgba(0, 0, 0, 0.14);
+  border-radius: 20px;
+  transform-origin: bottom right;
+  z-index: 3;
+
+  &.hiding {
+    .hidingRotated{
+      position: absolute;
+      height: 100%;
+      width: 100%;
+      background-color: #F1F6F6;
+    }
+  }
+  &.notransition {
+    transition: none;
+  }
+  &.second {
+    z-index: 2;
+    height: 98%;
+    transform: rotateZ(2deg);
+    transition-delay: .1s;
+  }
+  &.last {
+    z-index: 1;
+    height: 95%;
+    transform: rotateZ(3.5deg);
+    transition-delay: .2s;
+  }
+  &.end {
+    z-index: 0;
+    height: 92%;
+    transform: rotateZ(4.5deg);
+  }
+}
+
+.image {
+  background-position: center center;
+  border-radius: 20px;
+  height: 219px;
+  margin-left: 17px;
+  margin-top: 17px;
+  margin-right: 17px;
+  margin-bottom: 20px
+}
+
+.informations_generales_plat {
+  margin-left: 17px;
+  margin-right: 17px;
+  margin-bottom: 29px;
+}
+
+.nom_du_plat {
+  font-family: regular;
+  font-size: 30px;
+}
+
+.vegetarien {
+  float: right;
+  margin-top: 10px
+}
+
+.bas_de_la_page {
+  margin-left: 29px;
+  margin-right: 17px
+}
+
+.informations_precises {
+  margin-bottom: 35px
+}
+
+.temps {
+  float: left;
+  margin-right: 6px;
+}
+
+.nombre_personne {
+  float: left;
+  margin-right: 6px;
+}
+
+.energie {
+  float: left;
+  margin-right: 11px;
+  margin-left: 3px;
+}
+
+.likes {
+  text-align: center;
+  position: absolute;
+  right: 18px;
+  bottom: 0px;
+}
+
+.nombre_likes {
+  margin-top: -1px
+}
