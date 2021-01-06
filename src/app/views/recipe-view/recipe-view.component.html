@@ -1,23 +1,33 @@
-<div class="content">
-  <div class="row">
-    <div class="slidebar"></div>
-    <div class=image-title>
-        <img class="img-recipe" [src]="getProtectedUrl('https://www.nutriwi.com/img/recettes/' + data.recipe.nameSlugify + '.jpg')" >
-        <span class="title">{{ data.recipe.name }}</span>
+<div class="content" *ngIf="data">
+  <div class="bar"></div>
+  <div class="imagecontainer">
+    <img class="image" src="https://imgcdn.circulaire-en-ligne.ca/wp-content/uploads/lasagnes-a-la-bolognaise-facile.jpg" />
+    <div class="title">
+      {{ data.recipe.name }}
     </div>
   </div>
-  <div class="bottom">
-    <ng-component *ngFor="let step of data.recipe.steps; let index = index">
-      <p class="étape">Étape {{ index + 1 }} :</p>
-      <div class="step">{{  step.content }}</div>
-      <div class="recipe-info_icon-only">
-        <img *ngFor="let el of step.ingredients" [src]="getProtectedUrl(getIconFromId(el).source)">
+  <div class="boundary" [style.width]="'calc('+ (data.recipe.steps.length * 100 * 2) + '%'" [style.marginLeft]="-(data.recipe.steps.length * 100) + '%'">
+    
+    <div cdkDrag cdkDragBoundary=".boundary" cdkDragLockAxis="x" class="steps" (cdkDragMoved)="dragged($event)" (cdkDragReleased)="dropped($event)" [cdkDragFreeDragPosition]="dragPosition">
+      <div class="step" *ngFor="let step of data.recipe.steps; let index = index" [style.width]="(100 / data.recipe.steps.length)+'%'">
+        Étape {{ index + 1 }} :
+        <div class="stepbox">
+          <label class="step_content">
+            Éplucher les pommes de terre, les laver et les faire cuire dans de l'eau salée pendant 15 minutes.
+          </label>
+        </div>
       </div>
-    </ng-component>
-    <div class="recipe-info">
-      <img class="clock" src="/assets/icons/clock.svg">
-      <span class="durée_de_préparation">{{ data.recipe.time.total }}</span>
     </div>
   </div>
-
+  <div class="bottom_bar">
+    <div class="bottom">
+      <div class="time">
+        <img src="../../../assets/icons/clock.svg" />
+        <label>3 minutes</label>
+      </div>
+      <div class="ingredients">
+      </div>
+    </div>
+  </div>
+  <img class="arrow" src="../..//../assets/icons/arrow.svg" />
 </div>
