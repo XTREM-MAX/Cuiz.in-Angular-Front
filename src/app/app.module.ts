@@ -28,8 +28,8 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatDialogModule } from '@angular/material/dialog';
 import { PasswordFieldComponent } from './views/account/password-field/password-field.component';
 import { HeaderComponent } from './components/header/header.component';
-import { RecipeViewComponent } from './views/recipes/recipe-view/recipe-view.component';
 import { DragDropModule } from '@angular/cdk/drag-drop';
+import { RecipeViewComponent } from './views/recipe-view/recipe-view.component';
 
 @NgModule({
 	declarations: [
@@ -44,8 +44,8 @@ import { DragDropModule } from '@angular/cdk/drag-drop';
 		AccountComponent,
 		LoginAskNameComponent,
 		PasswordFieldComponent,
-		HeaderComponent,
-		RecipeViewComponent,
+    HeaderComponent,
+    RecipeViewComponent
 	],
 	providers: [
 		LoginActivate,

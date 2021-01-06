@@ -2,7 +2,7 @@
   <app-header title="Recettes" [searchBox]="true"></app-header>
 
   <ng-container *ngFor="let recipe of client.recipes">
-    <app-recipe *ngIf="recipe.recipe_name.toLowerCase().includes(client.search.toLowerCase())" [recipe]="recipe" [index]="client.recipes.indexOf(recipe)" [delayAnimation]="!initialized" (click)="focusedRecipe = recipe"></app-recipe>
+    <app-recipe *ngIf="recipe.recipe_name.toLowerCase().includes(client.search.toLowerCase())" [recipe]="recipe" [index]="client.recipes.indexOf(recipe)" [delayAnimation]="!initialized" [routerLink]="'/recipes/'+recipe.recipe_id"></app-recipe>
   </ng-container>
   <div *ngIf="!client.recipes.length" class="nothing">
     <img draggable="false" src="../../../assets/tumbleweed.svg" />
@@ -11,5 +11,4 @@
     </label>
     <button class="discover" mat-stroked-button color="accent" [routerLink]="'/home'">Découvrir des recettes</button>
 	</div>
-	<app-recipe-view *ngIf="focusedRecipe" [recipe]="focusedRecipe" (close)="focusedRecipe = undefined"></app-recipe-view>
 </div>

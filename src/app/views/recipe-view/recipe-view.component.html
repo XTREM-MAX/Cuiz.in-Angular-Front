@@ -1,0 +1,23 @@
+<div class="content">
+  <div class="row">
+    <div class="slidebar"></div>
+    <div class=image-title>
+        <img class="img-recipe" [src]="getProtectedUrl('https://www.nutriwi.com/img/recettes/' + data.recipe.nameSlugify + '.jpg')" >
+        <span class="title">{{ data.recipe.name }}</span>
+    </div>
+  </div>
+  <div class="bottom">
+    <ng-component *ngFor="let step of data.recipe.steps; let index = index">
+      <p class="étape">Étape {{ index + 1 }} :</p>
+      <div class="step">{{  step.content }}</div>
+      <div class="recipe-info_icon-only">
+        <img *ngFor="let el of step.ingredients" [src]="getProtectedUrl(getIconFromId(el).source)">
+      </div>
+    </ng-component>
+    <div class="recipe-info">
+      <img class="clock" src="/assets/icons/clock.svg">
+      <span class="durée_de_préparation">{{ data.recipe.time.total }}</span>
+    </div>
+  </div>
+
+</div>

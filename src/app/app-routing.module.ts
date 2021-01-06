@@ -1,3 +1,4 @@
+import { RecipeViewComponent } from './views/recipe-view/recipe-view.component';
 import { NotLoggedActivate } from './router/conditions/NotLoggedActivate';
 import { LoginActivate } from './router/conditions/LoginActivate';
 import { LoginComponent } from './views/login/login.component';
@@ -14,7 +15,8 @@ import { AccountComponent } from './views/account/account.component';
     RouterModule.forRoot([
       { path: '', pathMatch: 'full', redirectTo: '/home', canActivate: [LoginActivate] },
       { path: 'home', component: HomeComponent, canActivate: [LoginActivate] },
-      { path: 'recipes', component: RecipesComponent, canActivate: [LoginActivate]  },
+      { path: 'recipes', component: RecipesComponent, canActivate: [LoginActivate] },
+      { path: 'recipes/:id', component: RecipeViewComponent, canActivate: [LoginActivate] },
 			{ path: 'login', component: LoginComponent, canActivate: [NotLoggedActivate] },
 			{ path: 'account', component: AccountComponent, canActivate: [LoginActivate] }
     ])
