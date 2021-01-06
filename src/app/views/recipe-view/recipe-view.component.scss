@@ -1,6 +1,7 @@
 @import "../../../styles.scss";
 
 .content {
+  overflow: hidden;
   position: absolute;
   top: 15px;
   height: calc(100% - 30px - 56px - 40px);
