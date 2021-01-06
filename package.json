@@ -1,11 +1,10 @@
 {
-  "name": "Cuiz.in-angular-front",
+  "name": "cuizinangularfront",
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
     "start": "ng serve --host 0.0.0.0 --disableHostCheck",
     "build": "ng build --prod",
-    "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"
   },
