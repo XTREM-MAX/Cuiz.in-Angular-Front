@@ -1,8 +1,8 @@
 {
   "name": "Cuiz.in",
   "short_name": "Cuiz.in",
-  "theme_color": "#1976d2",
-  "background_color": "#fafafa",
+  "theme_color": "#cd7474",
+  "background_color": "#e2f3f5",
   "display": "standalone",
   "scope": "./",
   "start_url": "./",
