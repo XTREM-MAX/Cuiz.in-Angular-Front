@@ -6,7 +6,7 @@
     <section #firstcard>
       <ng-container *ngIf="!transitioning">
         <div class="hidingRotated"></div>
-        <div class="image" [style.backgroundImage]="'url(https://www.nutriwi.com/img/recettes/' + client.homeRecipe.recipe.nameSlugify + '.jpg)'"></div>
+        <img class="image" [src]="'https://www.nutriwi.com/img/recettes/' + client.homeRecipe.recipe.nameSlugify + '.jpg'" />
 
         <div class="informations_generales_plat">
           <a class="nom_du_plat">{{ client.homeRecipe.recipe.name }}</a>

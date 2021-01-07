@@ -20,7 +20,7 @@
   }
   .imagecontainer {
     position: relative;
-    font-size: get-vws(5);
+    font-size: get-vws(4.8);
     line-height: get-vws(5);
     text-align: center;
     .image {
@@ -95,7 +95,7 @@
         }
         label {
           font-family: light;
-          font-size: 22px;
+          font-size: get-vws(3.7);
           margin: auto;
         }
         margin-right: 20px;

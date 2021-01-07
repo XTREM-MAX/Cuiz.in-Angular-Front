@@ -58,6 +58,8 @@ section {
   background-position: center center;
   border-radius: 20px;
   height: 219px;
+  width: calc(100% - 34px);
+  object-fit: cover;
   margin-left: 17px;
   margin-top: 17px;
   margin-right: 17px;
