@@ -30,10 +30,9 @@ export class RecipeViewComponent implements OnInit {
   }
   dropped(e: CdkDragRelease) {
       this.totalMovedBefore = this.totalMoved;
-      console.log(e)
       let childs = e.source.element.nativeElement.children;
       let width = childs[0].clientWidth + 8;
-      let current = Math.round(-this.totalMoved/width);
+      let current = Math.min(Math.round(-this.totalMoved/width), this.data.recipe.steps.length-1);
   
       this.dragPosition = { ...this.dragPosition, x: -current * width};
       
@@ -50,7 +49,6 @@ export class RecipeViewComponent implements OnInit {
     let childs = e.source.element.nativeElement.children;
     let width = childs[0].clientWidth + 8;
     let current = -this.totalMoved/width;
-    console.log(current);
     for (let index = 0; index < childs.length; index++) {
       let child = childs[index] as HTMLElement;
       child.style.opacity = (Math.min(1 - Math.max(0, current - index), 1 - Math.max(0, index - current))*3).toString();

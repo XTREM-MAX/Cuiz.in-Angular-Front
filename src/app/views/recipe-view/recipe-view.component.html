@@ -13,7 +13,7 @@
         Étape {{ index + 1 }} :
         <div class="stepbox">
           <label class="step_content">
-            Éplucher les pommes de terre, les laver et les faire cuire dans de l'eau salée pendant 15 minutes.
+            {{ step.content }}
           </label>
         </div>
       </div>
@@ -23,7 +23,7 @@
     <div class="bottom">
       <div class="time">
         <img src="../../../assets/icons/clock.svg" />
-        <label>3 minutes</label>
+        <label>{{ data.recipe.time.total }} minutes</label>
       </div>
       <div class="ingredients">
       </div>
