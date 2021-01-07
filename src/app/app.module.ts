@@ -3,7 +3,7 @@ import { LoginActivate } from './router/conditions/LoginActivate';
 import { NotLoggedActivate } from './router/conditions/NotLoggedActivate';
 import { LoginComponent } from './views/login/login.component';
 import { RecipeComponent } from './views/recipes/recipe/recipe.component';
-import { HomeComponent } from './views/Home/Home.component';
+import { HomeComponent } from './views/home/home.component';
 import { BottomBarButtonComponent } from './components/bottombar/BottomBarButton/BottomBarButton.component';
 import { RecipesComponent } from './views/recipes/recipes.component';
 import { BrowserModule } from '@angular/platform-browser';

@@ -3,8 +3,8 @@ import { ClientService } from '../../services/client.service';
 
 @Component({
   selector: 'app-Home',
-  templateUrl: './Home.component.html',
-  styleUrls: ['./Home.component.scss']
+  templateUrl: './home.component.html',
+  styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements AfterViewInit {
 
@@ -14,7 +14,7 @@ export class HomeComponent implements AfterViewInit {
 
   @ViewChild("view")
   public view: ElementRef;
-  
+
   @ViewChild("lastcard")
   public lastcard: ElementRef;
   @ViewChild("secondcard")
@@ -27,7 +27,7 @@ export class HomeComponent implements AfterViewInit {
   ngAfterViewInit() {
     let viewElement = this.view.nativeElement as HTMLElement;
     viewElement.addEventListener("touchmove", (event) => {
-      
+
     });
 
 
@@ -40,7 +40,7 @@ export class HomeComponent implements AfterViewInit {
       let target = event.target as HTMLElement;
       while (target != null && target != this.firstcard.nativeElement)
         target = target.parentElement;
-      
+
       if (target) {
         pressedElement = target;
         started = {
@@ -53,7 +53,7 @@ export class HomeComponent implements AfterViewInit {
       let target = event.target as HTMLElement;
       while (target != null && target != this.firstcard.nativeElement)
         target = target.parentElement;
-      
+
       if (target) {
         pressedElement = target;
         started = {
