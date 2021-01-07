@@ -1,7 +1,7 @@
 <div class="content" *ngIf="data">
   <div class="bar" routerLink="/recipes"></div>
   <div class="imagecontainer">
-    <img class="image" src="https://imgcdn.circulaire-en-ligne.ca/wp-content/uploads/lasagnes-a-la-bolognaise-facile.jpg" />
+    <img class="image" alt="Image représentant la recette : {{ data.recipe.name }}" draggable="false" src="https://www.nutriwi.com/img/recettes/{{ data.recipe.nameSlugify }}.jpg" />
     <div class="title">
       {{ data.recipe.name }}
     </div>
