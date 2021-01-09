@@ -47,6 +47,7 @@ export class LoginComponent implements OnInit {
 							//Create account
 							await this._client.register(this.email, this.password, text);
 							this._snackBar.open(`Bienvenue, ${this._client.user.name} !`, "", { duration: 2000 });
+							this._client.init();
 							this._router.navigateByUrl("/home");
 						}
 					}
